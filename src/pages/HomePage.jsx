@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import getAllProducts from "../services/productService";
+import { getAllProducts } from "../services/productService";
 import ProductCard from "../components/ProductCard";
 
 
@@ -15,8 +15,6 @@ function HomePage() {
 
     fetchProducts();
   }, []);
-
-  console.log(products[0]);
 
   return (
     <div className="grid grid-cols-4 gap-4">
