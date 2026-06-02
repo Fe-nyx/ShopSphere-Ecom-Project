@@ -4,7 +4,7 @@ import { getProductById } from "../services/productService";
 
 function ProductDetailsPage() {
   const [product, setProduct] = useState(null);
-  const params = useParams();
+  const { id } = useParams();
 
   useEffect(()=>{
     async function fetchProduct(id){
@@ -12,8 +12,8 @@ function ProductDetailsPage() {
       setProduct(data);
     }
 
-    fetchProduct(params.id)
-  },[params.id])
+    fetchProduct(id)
+  },[id])
   return (
     <>
       <h1>{product?.title}</h1>

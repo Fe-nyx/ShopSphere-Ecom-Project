@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { useSelector } from "react-redux";
 import { getAllProducts } from "../services/productService";
 import ProductCard from "../components/ProductCard";
 
@@ -15,6 +16,7 @@ function HomePage() {
 
     fetchProducts();
   }, []);
+
 
   return (
     <div className="grid grid-cols-4 gap-4">
