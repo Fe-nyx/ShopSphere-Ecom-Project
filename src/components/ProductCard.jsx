@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { addToCart } from "../redux/slices/cartSlice"
+import { addToWishlist } from "../redux/slices/wishlistSlice";
 
 function ProductCard({ product }) {
 
@@ -21,6 +22,7 @@ function ProductCard({ product }) {
 
 
             <button onClick={() => dispatch(addToCart(product))}>Add To Cart</button>
+            <button onClick={() => dispatch(addToWishlist(product))}>Add To Wishlist</button>
         </div>
 
     )
