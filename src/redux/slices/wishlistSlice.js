@@ -1,8 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
+const savedWishlist = JSON.parse(localStorage.getItem("wishlist"));
+
+
 const wishlistSlice = createSlice({
     name: "wishlist",
-    initialState: [],
+    initialState: savedWishlist || [],
     reducers: {
         addToWishlist: (state, action) => {
             const existingItem = state.find(
