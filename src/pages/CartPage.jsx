@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux"
 
-import { deleteFromCart } from "../redux/slices/cartSlice";
+import { deleteFromCart, increaseQty, decreaseQty } from "../redux/slices/cartSlice";
 
 
 
@@ -40,7 +40,13 @@ function CartPage() {
           />
           <p>{item.product.title}</p>
           <p>Price: {item.product.price}</p>
+          <button onClick={()=> dispatch(increaseQty(item.product.id))}>
+            +
+          </button>
           <p>Quantity: {item.quantity}</p>
+          <button onClick={()=> dispatch(decreaseQty(item.product.id))}>
+            -
+          </button>
           <button onClick={() => dispatch(deleteFromCart(item.product.id))}>
             Delete
           </button>
