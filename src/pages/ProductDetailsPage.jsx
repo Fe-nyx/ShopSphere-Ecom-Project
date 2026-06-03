@@ -1,22 +1,30 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom"
-import { getProductById } from "../services/productService";
+import { fetchProductDetails } from "../redux/slices/productDetailsSlice";
 
 function ProductDetailsPage() {
-  const [product, setProduct] = useState(null);
+  const dispatch = useDispatch();
   const { id } = useParams();
 
-  useEffect(()=>{
-    async function fetchProduct(id){
-      const data = await getProductById(id)
-      setProduct(data);
-    }
+  useEffect(() => {
+    dispatch(fetchProductDetails(id))
+  }, [dispatch, id]);
 
-    fetchProduct(id)
-  },[id])
+  const { productDetails, status, error } = useSelector((state) => state.productDetails)
+
+  if (status === "loading") {
+    return <h1>Product is loading...Please Wait</h1>
+  }
+
+  if (status === "failed") {
+    return <h1>{error}</h1>
+  }
+
+
   return (
     <>
-      <h1>{product?.title}</h1>
+      <h1>{productDetails?.title}</h1>
     </>
   )
 }
