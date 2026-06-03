@@ -7,11 +7,11 @@ function Header() {
   const cart = useSelector((state) => state.cart);
   const wishlist = useSelector((state) => state.wishlist);
 
-  const cartTotal = cart.reduce((total, item) => {
+  const cartCounter = cart.reduce((total, item) => {
     return total + item.quantity
   }, 0)
 
-  const wishlistTotal = wishlist.length;
+  const wishlistCounter = wishlist.length;
 
 
 
@@ -22,10 +22,10 @@ function Header() {
       <Link to="/">Home</Link>
       <Link to="/login">Log In</Link>
       <Link to="/wishlist">
-        Wishlist ({wishlistTotal})
+        Wishlist ({wishlistCounter})
       </Link>
       <Link to="/cart">
-        Cart ({cartTotal})
+        Cart ({cartCounter})
       </Link>
     </>
   )
