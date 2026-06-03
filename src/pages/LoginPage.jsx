@@ -2,7 +2,7 @@ function LoginPage() {
 
   return (
     <>
-      <h1>LoginPage</h1>
+      <h1>Login</h1>
     </>
   )
 }

@@ -26,7 +26,7 @@ function CartPage() {
 
   return (
     <>
-      <h1>CartPage</h1>
+      <h1>Cart</h1>
 
       {cart.map((item) => (
         <div
@@ -38,19 +38,27 @@ function CartPage() {
             alt={item.product.title}
             className="w-48 h-48 object-contain"
           />
+          
           <p>{item.product.title}</p>
+
           <p>Price: {item.product.price}</p>
+
           <button onClick={()=> dispatch(increaseQty(item.product.id))}>
             +
           </button>
+
           <p>Quantity: {item.quantity}</p>
+
           <button onClick={()=> dispatch(decreaseQty(item.product.id))}>
             -
           </button>
+
           <button onClick={() => dispatch(deleteFromCart(item.product.id))}>
             Delete
           </button>
+
           <p>Subtotal: {(item.product.price * item.quantity).toFixed(2)}</p>
+
         </div>
       ))}
 
