@@ -30,12 +30,14 @@ function ProductDetailsPage() {
           <img
             src={productDetails?.image}
             alt={productDetails?.title}
-            className="w-64 h-64 object-contain"
+            className="w-full max-w-md h-96 object-contain mx-auto"
           />
         </div>
 
         <div>
-          <h1>{productDetails?.title}</h1>
+          <h1 className="text-3xl font-bold mb-4">
+            {productDetails?.title}
+          </h1>
 
           <p>Price: ${productDetails?.price}</p>
 

@@ -12,7 +12,7 @@ import WhatWeSell from "../components/WhatWeSell";
 function HomePage() {
   const dispatch = useDispatch();
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const { searchValue } = useSelector((state)=>state.search);
+  const { searchValue } = useSelector((state) => state.search);
 
   useEffect(() => {
     dispatch(fetchProducts())
@@ -47,25 +47,25 @@ function HomePage() {
   // Main Render
   return (
     <>
-      <Banner/>
+      <Banner />
 
-      <WhatWeSell/>
+      <WhatWeSell />
 
-      <div>
-        <select
-          value={selectedCategory}
-          onChange={(event) => setSelectedCategory(event.target.value)}
-        >
-          {categories.map((category, index) => {
-            return <option
-              key={index}
-              value={category}  
-            >
-              {category}
-            </option>
-          })}
-        </select>
-      </div>
+      <div className="flex flex-wrap gap-2 mb-8">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+            className={
+              selectedCategory === category
+              ? "border px-4 py-2 rounded bg-black text-white hover:bg-gray-800"
+              : "border px-4 py-2 rounded hover:bg-gray-100"
+            }
+          >
+        {category}
+      </button>
+        ))}
+    </div >
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {searchedProducts.map((product) => {
