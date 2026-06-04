@@ -24,37 +24,44 @@ function ProductDetailsPage() {
   }
 
   return (
-    <>
-      <img
-        src={productDetails?.image}
-        alt={productDetails?.title}
-        className="w-64 h-64 object-contain"
-      />
+    <div className="max-w-6xl mx-auto p-6">
+      <div className="grid md:grid-cols-2 gap-8">
+        <div>
+          <img
+            src={productDetails?.image}
+            alt={productDetails?.title}
+            className="w-64 h-64 object-contain"
+          />
+        </div>
 
-      <h1>{productDetails?.title}</h1>
+        <div>
+          <h1>{productDetails?.title}</h1>
 
-      <p>Price: ${productDetails?.price}</p>
+          <p>Price: ${productDetails?.price}</p>
 
-      <p>Category: {productDetails?.category}</p>
+          <p>Category: {productDetails?.category}</p>
 
-      <p>Rating: {productDetails?.rating?.rate}</p>
+          <p>Rating: {productDetails?.rating?.rate}</p>
 
-      <p>Reviews: {productDetails?.rating?.count}</p>
+          <p>Reviews: {productDetails?.rating?.count}</p>
 
-      <p>{productDetails?.description}</p>
+          <p>{productDetails?.description}</p>
 
-      <button
-        onClick={() => dispatch(addToCart(productDetails))}
-      >
-        Add To Cart
-      </button>
+          <button
+            onClick={() => dispatch(addToCart(productDetails))}
+          >
+            Add To Cart
+          </button>
 
-      <button
-        onClick={() => dispatch(addToWishlist(productDetails))}
-      >
-        Add To Wishlist
-      </button>
-    </>
+          <button
+            onClick={() => dispatch(addToWishlist(productDetails))}
+          >
+            Add To Wishlist
+          </button>
+        </div>
+
+      </div>
+    </div>
   )
 }
 
