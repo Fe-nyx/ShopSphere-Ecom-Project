@@ -21,8 +21,17 @@ function ProductCard({ product }) {
             </Link>
 
 
-            <button onClick={() => dispatch(addToCart(product))}>Add To Cart</button>
-            <button onClick={() => dispatch(addToWishlist(product))}>Add To Wishlist</button>
+            <button
+                onClick={() => dispatch(addToCart(product))}
+            >
+                Add To Cart
+            </button>
+
+            <button
+                onClick={() => dispatch(addToWishlist(product))}
+            >
+                Add To Wishlist
+            </button>
         </div>
 
     )

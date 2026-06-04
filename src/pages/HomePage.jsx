@@ -7,8 +7,7 @@ import { fetchProducts } from "../redux/slices/productsSlice";
 function HomePage() {
   const dispatch = useDispatch();
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [showSearch, setShowSearch] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
+  const { searchValue } = useSelector((state)=>state.search);
 
   useEffect(() => {
     dispatch(fetchProducts())
@@ -52,17 +51,8 @@ function HomePage() {
             return <option key={index}>{category}</option>
           })}
         </select>
-        <button onClick={() => setShowSearch(!showSearch)}>
-          Search
-        </button>
-        {showSearch && (
-          <input
-            className="border"
-            value={searchValue}
-            onChange={(event) => setSearchValue(event.target.value)}
-          />
-        )}
       </div>
+
       <div className="grid grid-cols-4 gap-4">
         {searchedProducts.map((product) => {
           return <ProductCard key={product.id} product={product} />

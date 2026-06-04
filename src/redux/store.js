@@ -3,13 +3,15 @@ import cartReducer from "./slices/cartSlice";
 import wishlistReducer from "./slices/wishlistSlice"
 import productsReducer from "./slices/productsSlice"
 import productDetailsReducer from "./slices/productDetailsSlice"
+import searchReducer from "./slices/searchSlice"
 
 const store = configureStore({
     reducer: {
         cart: cartReducer,
         wishlist: wishlistReducer,
         products: productsReducer,
-        productDetails: productDetailsReducer
+        productDetails: productDetailsReducer,
+        search: searchReducer
     }
 });
 
