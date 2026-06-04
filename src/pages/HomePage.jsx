@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux";
-import ProductCard from "../components/ProductCard";
+
+
 import { fetchProducts } from "../redux/slices/productsSlice";
 
+
+import ProductCard from "../components/ProductCard";
+import Banner from "../components/Banner";
+import WhatWeSell from "../components/WhatWeSell";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -42,18 +47,27 @@ function HomePage() {
   // Main Render
   return (
     <>
+      <Banner/>
+
+      <WhatWeSell/>
+
       <div>
         <select
           value={selectedCategory}
           onChange={(event) => setSelectedCategory(event.target.value)}
         >
           {categories.map((category, index) => {
-            return <option key={index}>{category}</option>
+            return <option
+              key={index}
+              value={category}  
+            >
+              {category}
+            </option>
           })}
         </select>
       </div>
 
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {searchedProducts.map((product) => {
           return <ProductCard key={product.id} product={product} />
         })}

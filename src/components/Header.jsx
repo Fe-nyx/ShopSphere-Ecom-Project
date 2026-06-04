@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { FiSearch } from "react-icons/fi"
+import { FiSearch, FiHeart, FiShoppingCart, FiBell } from "react-icons/fi"
 
 import { updateSearchValue } from "../redux/slices/searchSlice";
 import { useState } from "react";
@@ -34,45 +34,103 @@ function Header() {
 
 
   return (
-    <>
-      <h1>Header</h1>
+    <header className="sticky top-0 bg-white shadow-md">
 
-      <button
-        onClick={() => setShowSearch(!showSearch)}
-      >
-        <FiSearch />
-      </button>
+      <div className="flex items-center justify-between px-4 py-3">
 
-      {showSearch && (
-        <form onSubmit={handleSearchSubmit}>
-          <input
-            className="border"
-            value={inputValue}
-            onChange={(event)=>setInputValue(event.target.value)}
-          />
+        <Link
+          to="/"
+          className="hover:text-blue-600"
+        >
+          <h1 className="text-2xl font-bold">
+            ShopSphere
+          </h1>
+        </Link>
 
+        <div className="flex items-center gap-2">
           <button
-            type="submit"
+            onClick={() => setShowSearch(!showSearch)}
+            className="text-xl cursor-pointer"
           >
-            Search
+            <FiSearch />
           </button>
 
-        </form>
-      )}
+          {showSearch && (
+            <form
+              onSubmit={handleSearchSubmit}
+              className="flex items-center gap-2"
+            >
 
-      <Link to="/">Home</Link>
+              <input
+                className="border rounded px-3 py-1"
+                placeholder="Search products..."
+                value={inputValue}
+                onChange={(event) => setInputValue(event.target.value)}
+              />
 
-      <Link to="/login">Log In</Link>
+              <button
+                type="submit"
+                className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+              >
+                Search
+              </button>
 
-      <Link to="/wishlist">
-        Wishlist ({wishlistCounter})
-      </Link>
+            </form>
+          )}
+        </div>
 
-      <Link to="/cart">
-        Cart ({cartCounter})
-      </Link>
+        <div className="flex items-center gap-4">
 
-    </>
+          <Link
+            to="/login"
+            className="border px-3 py-1 rounded hover:bg-gray-100"
+          >
+            Log In
+          </Link>
+
+          <Link
+            to="/wishlist"
+            className="flex items-center gap-1"
+          >
+            <FiHeart className="text-xl" />
+            <span
+              className="
+                bg-red-500
+                text-white
+                text-xs
+                px-2
+                rounded-full
+              "
+            >
+              {wishlistCounter}
+            </span>
+          </Link>
+
+          <Link
+            to="/cart"
+            className="flex items-center gap-1"
+          >
+            <FiShoppingCart className="text-xl" />
+            <span
+              className="
+                bg-blue-500
+                text-white
+                text-xs
+                px-2
+                rounded-full
+              "
+            >
+              {cartCounter}
+            </span>
+          </Link>
+
+          <FiBell className="text-xl" />
+
+        </div>
+
+      </div>
+
+    </header>
   )
 }
 
