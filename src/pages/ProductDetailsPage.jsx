@@ -23,6 +23,11 @@ function ProductDetailsPage() {
     return <h1>{error}</h1>
   }
 
+  const rating = Math.round(productDetails?.rating?.rate || 0);
+
+  //Original Price is fabricated since FakeStore API does not provide original price or discounted price
+  const originalPrice = (productDetails.price * 1.2).toFixed(2);
+
   return (
     <div className="max-w-6xl mx-auto p-6">
       <div className="grid md:grid-cols-2 gap-8">
@@ -39,30 +44,60 @@ function ProductDetailsPage() {
             {productDetails?.title}
           </h1>
 
-          <p>Price: ${productDetails?.price}</p>
+          <div className="mb-4">
+            <p className="text-3xl font-bold">
+              ${productDetails?.price}
+            </p>
 
-          <p>Category: {productDetails?.category}</p>
+            <p className="text-gray-500 line-through">
+              ${originalPrice}
+            </p>
+          </div>
 
-          <p>Rating: {productDetails?.rating?.rate}</p>
+          <p className="text-gray-500 mb-2">
+            Category: {productDetails?.category}
+          </p>
 
-          <p>Reviews: {productDetails?.rating?.count}</p>
+          <p className="text-yellow-500 mb-2">
+            {"★".repeat(rating)}
+          </p>
 
-          <p>{productDetails?.description}</p>
+          <p className="text-gray-600 mb-4">
+            {productDetails?.rating?.count} reviews
+          </p>
 
-          <button
-            onClick={() => dispatch(addToCart(productDetails))}
-          >
-            Add To Cart
-          </button>
+          <div className="bg-gray-100 rounded p-4 mb-6 text-green-600">
+            <p>✓ Free Shipping</p>
+            <p>✓ Secure Payment</p>
+            <p>✓ Easy Returns</p>
+          </div>
 
-          <button
-            onClick={() => dispatch(addToWishlist(productDetails))}
-          >
-            Add To Wishlist
-          </button>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            {productDetails?.description}
+          </p>
+
+          <div className="flex gap-3">
+
+            <button
+              onClick={() => dispatch(addToCart(productDetails))}
+              className="bg-black text-white px-6 py-2 rounded mr-2 flex-1"
+            >
+              Add To Cart
+            </button>
+
+            <button
+              onClick={() => dispatch(addToWishlist(productDetails))}
+              className="border px-6 py-2 rounded flex-1"
+            >
+              Add To Wishlist
+            </button>
+
+          </div>
+
         </div>
 
       </div>
+
     </div>
   )
 }
