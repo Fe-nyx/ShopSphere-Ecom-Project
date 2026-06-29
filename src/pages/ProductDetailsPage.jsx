@@ -76,6 +76,7 @@ function ProductDetailsPage() {
 
           <p className="text-yellow-500 mb-2">
             {"★".repeat(rating)}
+            {"☆".repeat(5 - rating)}
           </p>
 
           <p className="text-gray-600 mb-4">
@@ -95,7 +96,7 @@ function ProductDetailsPage() {
           <div className="flex gap-3">
 
             <button
-              className="bg-black text-white px-6 py-2 rounded mr-2 flex-1"
+              className="cursor-pointer bg-black text-white px-6 py-2 rounded mr-2 flex-1"
               onClick={() => {
                 if (inCart) {
                   navigate("/cart");
@@ -117,7 +118,7 @@ function ProductDetailsPage() {
                   dispatch(addToWishlist(productDetails));
                 }
               }}
-              className="border px-4 py-2 rounded hover:bg-gray-100 transition"
+              className="cursor-pointer border px-4 py-2 rounded hover:bg-gray-100 transition"
             >
               {inWishlist ? (
                 <FaHeart className="text-red-500 text-xl" />

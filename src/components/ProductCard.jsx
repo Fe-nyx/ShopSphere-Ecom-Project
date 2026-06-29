@@ -41,6 +41,7 @@ function ProductCard({ product }) {
 
                     <p className="text-yellow-500 mb-2">
                         {"★".repeat(rating)}
+                        {"☆".repeat(5 - rating)}
                     </p>
 
                     <div className="mb-2">
@@ -62,7 +63,7 @@ function ProductCard({ product }) {
 
             <div className="flex gap-2">
                 <button
-                    className="flex-1 bg-black text-white px-3 py-1 rounded mr-2"
+                    className="cursor-pointer flex-1 bg-black text-white px-3 py-1 rounded mr-2"
                     onClick={() => {
                         if (inCart) {
                             navigate("/cart");
@@ -76,7 +77,7 @@ function ProductCard({ product }) {
                 </button>
 
                 <button
-                    className="border rounded px-3 py-2 hover:bg-gray-100 transition"
+                    className="cursor-pointer border rounded px-3 py-2 hover:bg-gray-100 transition"
                     onClick={() => {
                         if (inWishlist) {
                             dispatch(removeFromWishlist(product.id));

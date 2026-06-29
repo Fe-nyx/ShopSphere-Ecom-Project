@@ -49,7 +49,7 @@ function WishlistPage() {
 
             <button
               onClick={() => dispatch(removeFromWishlist(item.id))}
-              className="border border-red-500 text-red-500 px-4 py-2 rounded hover:bg-red-500 hover:text-white transition"
+              className="cursor-pointer border border-red-500 text-red-500 px-4 py-2 rounded hover:bg-red-500 hover:text-white transition"
             >
               Remove
             </button>

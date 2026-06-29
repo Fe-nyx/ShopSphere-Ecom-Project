@@ -54,7 +54,7 @@ function CartPage() {
 
               <button
                 onClick={() => dispatch(increaseQty(item.product.id))}
-                className="border px-3 py-1 rounded"
+                className="cursor-pointer border px-3 py-1 rounded"
               >
                 +
               </button>
@@ -65,7 +65,7 @@ function CartPage() {
 
               <button
                 onClick={() => dispatch(decreaseQty(item.product.id))}
-                className="border px-3 py-1 rounded"
+                className="cursor-pointer border px-3 py-1 rounded"
               >
                 -
               </button>
@@ -74,7 +74,7 @@ function CartPage() {
 
             <button
               onClick={() => dispatch(deleteFromCart(item.product.id))}
-              className="mt-3 border border-red-500 text-red-500 px-4 py-2 rounded hover:bg-red-500 hover:text-white transition"
+              className="cursor-pointer mt-3 border border-red-500 text-red-500 px-4 py-2 rounded hover:bg-red-500 hover:text-white transition"
             >
               Remove
             </button>
@@ -95,7 +95,7 @@ function CartPage() {
         </p>
 
         <button
-          className="w-full bg-black text-white py-3 rounded hover:bg-gray-800 transition"
+          className="cursor-pointer w-full bg-black text-white py-3 rounded hover:bg-gray-800 transition"
         >
           Proceed to Checkout
         </button>

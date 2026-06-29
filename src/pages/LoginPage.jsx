@@ -119,7 +119,7 @@ function LoginPage() {
 
           <button
             type="submit"
-            className="bg-black text-white py-2 rounded hover:bg-gray-800 transition mt-2"
+            className="cursor-pointer bg-black text-white py-2 rounded hover:bg-gray-800 transition mt-2"
           >
             Login
           </button>
