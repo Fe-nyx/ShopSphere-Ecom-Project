@@ -68,36 +68,68 @@ function LoginPage() {
 
 
   return (
-    <>
-      <h1>Login</h1>
+    <div className="flex justify-center items-center py-16 px-4">
 
-      <form noValidate onSubmit={handleSubmit}>
+      <div className="w-full max-w-md border rounded-lg shadow-md p-8">
 
-        <input
-          className="border"
-          type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-
-        {emailError && <p>{emailError}</p>}
-
-        <input
-          className="border"
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-
-        {passwordError && <p>{passwordError}</p>}
-
-        <button type="submit" >
+        <h1 className="text-3xl font-bold text-center mb-8">
           Login
-        </button>
+        </h1>
 
-      </form>
+        <form
+          noValidate
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-4"
+        >
+          <label className="font-medium">
+            Email
+          </label>
 
-    </>
+          <input
+            placeholder="Enter your email"
+            className="border rounded px-3 py-2 w-full"
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+
+          {emailError && (
+            <p className="text-red-500 text-sm">
+              {emailError}
+            </p>
+          )}
+
+          <label className="font-medium">
+            Password
+          </label>
+
+          <input
+            placeholder="Enter your password"
+            className="border rounded px-3 py-2 w-full"
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+
+          {passwordError && (
+            <p className="text-red-500 text-sm">
+              {passwordError}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            className="bg-black text-white py-2 rounded hover:bg-gray-800 transition mt-2"
+          >
+            Login
+          </button>
+
+        </form>
+
+      </div>
+
+
+    </div>
   )
 }
 

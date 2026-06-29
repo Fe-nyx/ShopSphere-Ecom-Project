@@ -1,19 +1,35 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { fetchProductDetails } from "../redux/slices/productDetailsSlice";
 import { addToCart } from "../redux/slices/cartSlice";
-import { addToWishlist } from "../redux/slices/wishlistSlice";
+import { addToWishlist, removeFromWishlist } from "../redux/slices/wishlistSlice";
+import { FiHeart } from "react-icons/fi";
+import { FaHeart } from "react-icons/fa";
+
+
+
 
 function ProductDetailsPage() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(fetchProductDetails(id))
+    dispatch(fetchProductDetails(id));
   }, [dispatch, id]);
 
-  const { productDetails, status, error } = useSelector((state) => state.productDetails)
+  const { productDetails, status, error } = useSelector((state) => state.productDetails);
+  const cart = useSelector((state) => state.cart);
+  const wishlist = useSelector((state) => state.wishlist);
+
+  const inCart = cart.some((item) => {
+    return item.product.id === productDetails?.id
+  });
+
+  const inWishlist = wishlist.some((item) => {
+    return item.id === productDetails?.id;
+  })
 
   if (status === "loading") {
     return <h1>Product is loading...Please Wait</h1>
@@ -26,7 +42,7 @@ function ProductDetailsPage() {
   const rating = Math.round(productDetails?.rating?.rate || 0);
 
   //Original Price is fabricated since FakeStore API does not provide original price or discounted price
-  const originalPrice = (productDetails.price * 1.2).toFixed(2);
+  const originalPrice = (productDetails?.price * 1.2).toFixed(2);
 
   return (
     <div className="max-w-6xl mx-auto p-6">
@@ -79,17 +95,35 @@ function ProductDetailsPage() {
           <div className="flex gap-3">
 
             <button
-              onClick={() => dispatch(addToCart(productDetails))}
               className="bg-black text-white px-6 py-2 rounded mr-2 flex-1"
+              onClick={() => {
+                if (inCart) {
+                  navigate("/cart");
+                }
+                else {
+                  dispatch(addToCart(productDetails));
+                }
+              }}
             >
-              Add To Cart
+              {inCart ? "Go To Cart" : "Add To Cart"}
             </button>
 
             <button
-              onClick={() => dispatch(addToWishlist(productDetails))}
-              className="border px-6 py-2 rounded flex-1"
+              onClick={() => {
+                if (inWishlist) {
+                  dispatch(removeFromWishlist(productDetails.id));
+                }
+                else {
+                  dispatch(addToWishlist(productDetails));
+                }
+              }}
+              className="border px-4 py-2 rounded hover:bg-gray-100 transition"
             >
-              Add To Wishlist
+              {inWishlist ? (
+                <FaHeart className="text-red-500 text-xl" />
+              ) : (
+                <FiHeart className="text-xl" />
+              )}
             </button>
 
           </div>

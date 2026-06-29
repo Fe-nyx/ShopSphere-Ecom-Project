@@ -26,15 +26,16 @@ function Header() {
 
   function handleSearchSubmit(event) {
     event.preventDefault();
-
     dispatch(updateSearchValue(inputValue.trim()));
-
     navigate("/");
+    
+    // Thought of closing the search bar after submitting but later thought it was a bad UX choice
+    // setShowSearch(false);
   }
 
 
   return (
-    <header className="sticky top-0 bg-white shadow-md">
+    <header className="sticky top-0 z-50 bg-white shadow-md">
 
       <div className="flex items-center justify-between px-4 py-3">
 
