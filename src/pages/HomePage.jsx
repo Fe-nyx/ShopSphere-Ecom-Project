@@ -11,9 +11,9 @@ import WhatWeSell from "../components/WhatWeSell";
 
 function HomePage() {
   const dispatch = useDispatch();
-  
+
   const [selectedCategory, setSelectedCategory] = useState("all");
-  
+
   const productsRef = useRef(null);
 
   const { searchValue } = useSelector((state) => state.search);
@@ -97,8 +97,8 @@ function HomePage() {
 
       <div
         className="flex flex-wrap gap-2 mb-8 scroll-mt-20"
-        ref = {productsRef}
-        >
+        ref={productsRef}
+      >
         {categories.map((category) => (
           <button
             key={category}
@@ -108,11 +108,15 @@ function HomePage() {
             }}
             className={
               selectedCategory === category
-                ? "border px-4 py-2 rounded bg-black text-white hover:bg-gray-800 cursor-pointer"
-                : "border px-4 py-2 rounded hover:bg-gray-100 cursor-pointer"
+                ? "border px-4 py-2 rounded-full bg-black text-white hover:bg-gray-800 cursor-pointer transition duration-300"
+                : "border px-4 py-2 rounded-full hover:bg-gray-100 cursor-pointer transition duration-200"
             }
           >
-            {category}
+            {/* Category Capitalization */}
+            {category
+              .split(" ")
+              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(" ")}
           </button>
         ))}
       </div >
