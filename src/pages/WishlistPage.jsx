@@ -31,7 +31,10 @@ function WishlistPage() {
           key={item.id}
           className="border p-4 flex flex-col md:flex-row gap-6 items-center"
         >
-          <Link to={`/product/${item.id}`}>
+          <Link
+          to={`/product/${item.id}`}
+          className="hover:opacity-80 transition"
+          >
             <img
               src={item.image}
               alt={item.title}
@@ -44,7 +47,7 @@ function WishlistPage() {
 
             <Link
               to={`/product/${item.id}`}
-              className="hover:text-blue-600"
+              className="hover:text-blue-600 transition"
             >
               <p className="text-lg font-semibold mb-2">
                 {item.title}

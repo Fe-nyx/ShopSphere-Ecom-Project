@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { FiSearch, FiHeart, FiShoppingCart, FiBell } from "react-icons/fi"
+import { FiSearch, FiHeart, FiShoppingCart, FiBell, FiUser } from "react-icons/fi"
 
 import { updateSearchValue } from "../redux/slices/searchSlice";
 import { useState } from "react";
@@ -38,13 +38,13 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
 
-      <div className="flex items-center justify-between px-4 py-3">
+      <div className="flex items-center justify-between px-2 sm:px-4 py-2 sm:py-3">
 
         <Link
           to="/"
           className="hover:text-blue-600"
         >
-          <h1 className="text-2xl font-bold">
+          <h1 className="text-xl sm:text-2xl font-bold">
             ShopSphere
           </h1>
         </Link>
@@ -81,18 +81,17 @@ function Header() {
           )}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-5">
 
           <Link
             to="/login"
-            className="border px-3 py-1 rounded hover:bg-gray-100"
           >
-            Log In
+            <FiUser className="text-xl"/>
           </Link>
 
           <Link
             to="/wishlist"
-            className="flex items-center gap-1"
+            className="flex items-center gap-0.5"
           >
             <FiHeart className="text-xl" />
             <span
@@ -110,7 +109,7 @@ function Header() {
 
           <Link
             to="/cart"
-            className="flex items-center gap-1"
+            className="flex items-center gap-0.5"
           >
             <FiShoppingCart className="text-xl" />
             <span

@@ -38,7 +38,10 @@ function CartPage() {
           key={item.product.id}
           className="border p-4 flex flex-col md:flex-row gap-6 items-center"
         >
-          <Link to={`/product/${item.product.id}`}>
+          <Link
+            to={`/product/${item.product.id}`}
+            className="hover:opacity-80 transition"
+          >
             <img
               src={item.product.image}
               alt={item.product.title}
@@ -51,7 +54,7 @@ function CartPage() {
 
             <Link
               to={`/product/${item.id}`}
-              className="hover:text-blue-600"
+              className="hover:text-blue-600 transition"
             >
               <p className="text-lg font-semibold mb-2">
                 {item.product.title}
