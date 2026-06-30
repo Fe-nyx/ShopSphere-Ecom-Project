@@ -104,7 +104,7 @@ function CartPage() {
         </div>
       ))}
 
-      <div className="mt-8 border rounded-lg p-6 max-w-sm ml-auto shadow-sm">
+      <div className="mt-8 mx-2 border rounded-lg p-4 max-w-sm ml-auto shadow-sm">
 
         <p className="text-xl font-bold mb-4">
           Cart Total: ${cartTotal.toFixed(2)}

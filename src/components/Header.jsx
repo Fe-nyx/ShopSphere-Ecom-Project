@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { FiSearch, FiHeart, FiShoppingCart, FiBell, FiUser } from "react-icons/fi"
+import { FiSearch, FiHeart, FiShoppingCart, FiBell, FiUser, FiX } from "react-icons/fi"
 
 import { updateSearchValue } from "../redux/slices/searchSlice";
 import { useState } from "react";
@@ -49,39 +49,16 @@ function Header() {
           </h1>
         </Link>
 
-        <div className="flex items-center gap-2">
+          
+
+        <div className="flex items-center gap-3 sm:gap-5">
+
           <button
             onClick={() => setShowSearch(!showSearch)}
             className="text-xl cursor-pointer"
           >
-            <FiSearch />
+            {showSearch ? <FiX /> : <FiSearch />}
           </button>
-
-          {showSearch && (
-            <form
-              onSubmit={handleSearchSubmit}
-              className="flex items-center gap-2"
-            >
-
-              <input
-                className="border rounded px-3 py-1"
-                placeholder="Search products..."
-                value={inputValue}
-                onChange={(event) => setInputValue(event.target.value)}
-              />
-
-              <button
-                type="submit"
-                className="cursor-pointer bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
-              >
-                Search
-              </button>
-
-            </form>
-          )}
-        </div>
-
-        <div className="flex items-center gap-3 sm:gap-5">
 
           <Link
             to="/login"
@@ -130,6 +107,29 @@ function Header() {
         </div>
 
       </div>
+
+      {showSearch && (
+        <div className="border-t p-2">
+          <form
+            onSubmit={handleSearchSubmit}
+            className="flex gap-2"
+          >
+            <input
+              className="flex-1 border rounded px-3 py-2"
+              placeholder="Search Products..."
+              value={inputValue}
+              onChange={(event)=>setInputValue(event.target.value)}
+            />
+
+            <button
+                type="submit"
+                className="bg-blue-500 text-white px-4 rounded hover:bg-blue-600 cursor-pointer"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+      )}
 
     </header>
   )
