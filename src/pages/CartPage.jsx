@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 
 import { deleteFromCart, increaseQty, decreaseQty } from "../redux/slices/cartSlice";
+import { Link } from "react-router-dom";
 
 
 
@@ -20,7 +21,9 @@ function CartPage() {
 
 
   if (cart.length === 0) {
-    return <h1>Your cart is empty</h1>;
+    return (<h1 className="text-3xl text-center font-semibold my-12">
+      Your wishlist is empty
+    </h1>)
   }
 
 
@@ -35,16 +38,26 @@ function CartPage() {
           key={item.product.id}
           className="border p-4 flex flex-col md:flex-row gap-6 items-center"
         >
-          <img
-            src={item.product.image}
-            alt={item.product.title}
-            className="w-48 h-48 object-contain"
-          />
+          <Link to={`/product/${item.product.id}`}>
+            <img
+              src={item.product.image}
+              alt={item.product.title}
+              className="w-48 h-48 object-contain"
+            />
+          </Link>
+
 
           <div className="flex-1">
-            <p className="text-lg font-semibold mb-2">
-              {item.product.title}
-            </p>
+
+            <Link
+              to={`/product/${item.id}`}
+              className="hover:text-blue-600"
+            >
+              <p className="text-lg font-semibold mb-2">
+                {item.product.title}
+              </p>
+            </Link>
+
 
             <p className="text-gray-600">
               Price: ${item.product.price}

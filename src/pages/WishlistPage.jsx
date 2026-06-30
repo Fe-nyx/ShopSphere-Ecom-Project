@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux"
-
+import { Link } from "react-router-dom";
 import { removeFromWishlist } from "../redux/slices/wishlistSlice";
 
 
@@ -31,17 +31,26 @@ function WishlistPage() {
           key={item.id}
           className="border p-4 flex flex-col md:flex-row gap-6 items-center"
         >
-          <img
-            src={item.image}
-            alt={item.title}
-            className="w-48 h-48 object-contain"
-          />
+          <Link to={`/product/${item.id}`}>
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-48 h-48 object-contain"
+            />
+          </Link>
+
 
           <div className="flex-1">
 
-            <p className="text-lg font-semibold mb-2">
-              {item.title}
-            </p>
+            <Link
+              to={`/product/${item.id}`}
+              className="hover:text-blue-600"
+            >
+              <p className="text-lg font-semibold mb-2">
+                {item.title}
+              </p>
+            </Link>
+
 
             <p className="text-gray-600 mb-4">
               Price: ${item.price}

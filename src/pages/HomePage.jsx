@@ -19,11 +19,19 @@ function HomePage() {
   const { searchValue } = useSelector((state) => state.search);
   const { products, status, error } = useSelector((state) => state.products)
 
+
   function scrollToProducts() {
     productsRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "start"
     });
+  }
+
+  function capitalizeCategory(category) {
+    return category
+      .split(" ")
+      .map((word => word.charAt(0).toUpperCase() + word.slice(1)))
+      .join(" ");
   }
 
   useEffect(() => {
@@ -108,15 +116,11 @@ function HomePage() {
             }}
             className={
               selectedCategory === category
-                ? "border px-4 py-2 rounded-full bg-black text-white hover:bg-gray-800 cursor-pointer transition duration-300"
+                ? "border px-4 py-2 rounded-full bg-black text-white hover:bg-gray-800 cursor-pointer transition duration-200"
                 : "border px-4 py-2 rounded-full hover:bg-gray-100 cursor-pointer transition duration-200"
             }
           >
-            {/* Category Capitalization */}
-            {category
-              .split(" ")
-              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-              .join(" ")}
+            {capitalizeCategory(category)}
           </button>
         ))}
       </div >

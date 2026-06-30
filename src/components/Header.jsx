@@ -26,8 +26,9 @@ function Header() {
 
   function handleSearchSubmit(event) {
     event.preventDefault();
-    dispatch(updateSearchValue(inputValue.trim()));
     navigate("/");
+    dispatch(updateSearchValue(inputValue.trim()));
+    
     
     // Thought of closing the search bar after submitting but later thought it was a bad UX choice
     // setShowSearch(false);
