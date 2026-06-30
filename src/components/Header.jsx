@@ -44,7 +44,7 @@ function Header() {
           to="/"
           className="hover:text-blue-600"
         >
-          <h1 className="text-xl md:text-2xl font-bold">
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold">
             ShopSphere
           </h1>
         </Link>
@@ -55,7 +55,7 @@ function Header() {
 
           <button
             onClick={() => setShowSearch(!showSearch)}
-            className="text-xl cursor-pointer"
+            className="text-xl md:text-2xl cursor-pointer"
           >
             {showSearch ? <FiX /> : <FiSearch />}
           </button>
@@ -63,14 +63,14 @@ function Header() {
           <Link
             to="/login"
           >
-            <FiUser className="text-xl"/>
+            <FiUser className="text-xl md:text-2xl"/>
           </Link>
 
           <Link
             to="/wishlist"
             className="flex items-center gap-0.5"
           >
-            <FiHeart className="text-xl" />
+            <FiHeart className="text-xl md:text-2xl" />
             <span
               className="
                 bg-red-500
@@ -88,7 +88,7 @@ function Header() {
             to="/cart"
             className="flex items-center gap-0.5"
           >
-            <FiShoppingCart className="text-xl" />
+            <FiShoppingCart className="text-xl md:text-2xl" />
             <span
               className="
                 bg-blue-500
@@ -102,7 +102,7 @@ function Header() {
             </span>
           </Link>
 
-          <FiBell className="text-xl" />
+          <FiBell className="text-xl md:text-2xl" />
 
         </div>
 

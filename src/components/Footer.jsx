@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer className="bg-gray-900 text-white mt-12">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8 p-8">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 p-8">
         <div>
           <h3 className="font-bold text-lg mb-4">ShopSphere</h3>
           <p>Your one-stop destination for online shopping.</p>

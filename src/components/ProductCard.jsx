@@ -10,11 +10,13 @@ import { FiHeart } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
 
 function ProductCard({ product }) {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const cart = useSelector((state) => state.cart);
     const wishlist = useSelector((state) => state.wishlist);
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+
+
     const rating = Math.round(product.rating.rate);
     //Original Price is fabricated since FakeStore API does not provide original price or discounted price
     const originalPrice = (product.price * 1.2).toFixed(2);
@@ -28,7 +30,7 @@ function ProductCard({ product }) {
     });
 
     return (
-        <div className="border rounded p-4 h-full flex flex-col transition duration-200 hover:shadow-lg hover:-translate-y-1">
+        <div className="border rounded p-2 md:p-4 h-full flex flex-col transition duration-200 hover:shadow-lg hover:-translate-y-1">
 
             <Link to={`/product/${product.id}`}>
                 <div className="flex-grow">
@@ -36,14 +38,14 @@ function ProductCard({ product }) {
                     <img
                         src={product.image}
                         alt={product.title}
-                        className="w-full h-56 object-contain mb-4"
+                        className="w-full h-40 md:h-56 object-contain mb-4 md:mb-8"
                     />
 
-                    <p className="font-semibold mb-2 min-h-12 line-clamp-2">
+                    <p className="font-semibold text-base md:text-lg md:mb-2 h-12 md:h-14 line-clamp-2">
                         {product.title}
                     </p>
 
-                    <div className="flex items-center mb-2 gap-1">
+                    <div className="flex items-center md:mb-2 gap-1">
                         <span className="text-yellow-500">
                             {"★".repeat(rating)}
                             {"☆".repeat(5 - rating)}
@@ -54,26 +56,26 @@ function ProductCard({ product }) {
                         </span>
                     </div>
 
-                    <div className="mb-2">
-                        <span className="text-lg font-bold">
+                    <div className="flex items-center md:mb-2 gap-1">
+                        <span className="text-lg md:text-xl font-semibold">
                             ${product.price}
                         </span>
 
-                        <span className="text-sm text-gray-500 line-through ml-2">
+                        <span className="text-sm text-gray-500 line-through">
                             ${originalPrice}
                         </span>
                     </div>
 
-                    <p className="text-sm text-gray-500 mb-4">
+                    <p className="text-sm text-gray-500 mb-2 md:mb-4">
                         {formatCategory(product.category)}
                     </p>
 
                 </div>
             </Link>
 
-            <div className="flex gap-2">
+            <div className="flex gap-2 md:gap-4">
                 <button
-                    className="cursor-pointer flex-1 bg-black text-white px-3 py-1 rounded mr-2"
+                    className="cursor-pointer flex-1 bg-black text-white px-2 py-1 md:py-2 rounded pb-1.5"
                     onClick={() => {
                         if (inCart) {
                             navigate("/cart");
@@ -87,7 +89,7 @@ function ProductCard({ product }) {
                 </button>
 
                 <button
-                    className="cursor-pointer border rounded px-3 py-2 hover:bg-gray-100 transition"
+                    className="cursor-pointer border rounded px-4 py-1 md:py-2 hover:bg-gray-100 transition"
                     onClick={() => {
                         if (inWishlist) {
                             dispatch(removeFromWishlist(product.id));
