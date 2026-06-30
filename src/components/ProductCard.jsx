@@ -39,14 +39,20 @@ function ProductCard({ product }) {
                         className="w-full h-56 object-contain mb-4"
                     />
 
-                    <p className="font-semibold mb-2 line-clamp-2">
+                    <p className="font-semibold mb-2 min-h-12 line-clamp-2">
                         {product.title}
                     </p>
 
-                    <p className="text-yellow-500 mb-2">
-                        {"★".repeat(rating)}
-                        {"☆".repeat(5 - rating)}
-                    </p>
+                    <div className="flex items-center mb-2 gap-1">
+                        <span className="text-yellow-500">
+                            {"★".repeat(rating)}
+                            {"☆".repeat(5 - rating)}
+                        </span>
+
+                        <span className="text-gray-600 text-sm">
+                            ({product.rating.count})
+                        </span>
+                    </div>
 
                     <div className="mb-2">
                         <span className="text-lg font-bold">

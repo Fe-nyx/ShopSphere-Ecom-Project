@@ -69,7 +69,7 @@ function HomePage() {
   }
   else {
     productsSection = (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 px-3 md:px-6">
         {searchedProducts.map((product) => {
           return <ProductCard key={product.id} product={product} />
         })}

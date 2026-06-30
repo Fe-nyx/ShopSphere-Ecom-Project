@@ -78,14 +78,16 @@ function ProductDetailsPage() {
             {formatCategory(productDetails?.category)}
           </p>
 
-          <p className="text-yellow-500 mb-2">
-            {"★".repeat(rating)}
-            {"☆".repeat(5 - rating)}
-          </p>
+          <div className="flex items-center mb-4 gap-1">
+            <span className="text-yellow-500">
+              {"★".repeat(rating)}
+              {"☆".repeat(5 - rating)}
+            </span>
 
-          <p className="text-gray-600 mb-4">
-            {productDetails?.rating?.count} reviews
-          </p>
+            <span className="text-gray-600 text-sm">
+              ({productDetails?.rating?.count} reviews)
+            </span>
+          </div>
 
           <div className="bg-gray-100 rounded p-4 mb-6 text-green-600">
             <p>✓ Free Shipping</p>

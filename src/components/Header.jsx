@@ -38,20 +38,20 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
 
-      <div className="flex items-center justify-between px-2 sm:px-4 py-2 sm:py-3">
+      <div className="flex items-center justify-between px-2 md:px-4 py-2 md:py-3">
 
         <Link
           to="/"
           className="hover:text-blue-600"
         >
-          <h1 className="text-xl sm:text-2xl font-bold">
+          <h1 className="text-xl md:text-2xl font-bold">
             ShopSphere
           </h1>
         </Link>
 
           
 
-        <div className="flex items-center gap-3 sm:gap-5">
+        <div className="flex items-center gap-3 md:gap-5">
 
           <button
             onClick={() => setShowSearch(!showSearch)}
