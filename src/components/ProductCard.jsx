@@ -1,7 +1,11 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
+
 import { addToCart } from "../redux/slices/cartSlice"
 import { addToWishlist, removeFromWishlist } from "../redux/slices/wishlistSlice";
+
+import { formatCategory } from "../utils/formatCategory";
+
 import { FiHeart } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
 
@@ -55,7 +59,7 @@ function ProductCard({ product }) {
                     </div>
 
                     <p className="text-sm text-gray-500 mb-4">
-                        {product.category}
+                        {formatCategory(product.category)}
                     </p>
 
                 </div>

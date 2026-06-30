@@ -1,9 +1,13 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom"
+
 import { fetchProductDetails } from "../redux/slices/productDetailsSlice";
 import { addToCart } from "../redux/slices/cartSlice";
 import { addToWishlist, removeFromWishlist } from "../redux/slices/wishlistSlice";
+
+import { formatCategory } from "../utils/formatCategory";
+
 import { FiHeart } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
 
@@ -71,7 +75,7 @@ function ProductDetailsPage() {
           </div>
 
           <p className="text-gray-500 mb-2">
-            Category: {productDetails?.category}
+            {formatCategory(productDetails?.category)}
           </p>
 
           <p className="text-yellow-500 mb-2">

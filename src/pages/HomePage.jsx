@@ -7,7 +7,7 @@ import ProductCard from "../components/ProductCard";
 import Banner from "../components/Banner";
 import WhatWeSell from "../components/WhatWeSell";
 
-
+import { formatCategory } from "../utils/formatCategory";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -25,13 +25,6 @@ function HomePage() {
       behavior: "smooth",
       block: "start"
     });
-  }
-
-  function capitalizeCategory(category) {
-    return category
-      .split(" ")
-      .map((word => word.charAt(0).toUpperCase() + word.slice(1)))
-      .join(" ");
   }
 
   useEffect(() => {
@@ -120,7 +113,7 @@ function HomePage() {
                 : "border px-4 py-2 rounded-full hover:bg-gray-100 cursor-pointer transition duration-200"
             }
           >
-            {capitalizeCategory(category)}
+            {formatCategory(category)}
           </button>
         ))}
       </div >
