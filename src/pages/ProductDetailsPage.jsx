@@ -49,27 +49,27 @@ function ProductDetailsPage() {
   const originalPrice = (productDetails?.price * 1.2).toFixed(2);
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      <div className="grid md:grid-cols-2 gap-8">
-        <div>
+    <div className="max-w-7xl mx-auto p-4 md:p-6">
+      <div className="grid md:grid-cols-2 gap-4 md:gap-8">
+        <div className="flex justify-center items-center">
           <img
             src={productDetails?.image}
             alt={productDetails?.title}
-            className="w-full max-w-md h-96 object-contain mx-auto"
+            className="w-full max-w-md h-56 md:h-96 object-contain mx-auto my-4"
           />
         </div>
 
         <div>
-          <h1 className="text-3xl font-bold mb-4">
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4">
             {productDetails?.title}
           </h1>
 
-          <div className="mb-4">
-            <p className="text-3xl font-bold">
+          <div className="mb-2 md:mb-4">
+            <p className="text-xl md:text-2xl lg:text-3xl font-bold">
               ${productDetails?.price}
             </p>
 
-            <p className="text-gray-500 line-through">
+            <p className="text-sm md:text-base text-gray-500 line-through">
               ${originalPrice}
             </p>
           </div>
@@ -89,13 +89,13 @@ function ProductDetailsPage() {
             </span>
           </div>
 
-          <div className="bg-gray-100 rounded p-4 mb-6 text-green-600">
+          <div className="text-sm md:text-base bg-gray-100 rounded p-2 md:p-4 mb-4 md:mb-6 text-green-600">
             <p>✓ Free Shipping</p>
             <p>✓ Secure Payment</p>
             <p>✓ Easy Returns</p>
           </div>
 
-          <p className="text-gray-700 leading-relaxed mb-6">
+          <p className="text-gray-700 leading-relaxed mb-4 md:mb-6">
             {productDetails?.description}
           </p>
 
