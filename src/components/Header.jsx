@@ -127,14 +127,9 @@ function Header() {
             <input
               className="
                 flex-1
-                border
-                border-[var(--color-border)]
-                focus:outline-none
-                focus:ring-2
-                focus:ring-[var(--color-accent)]
-                rounded
                 px-1 md:px-3
                 md:py-2
+                input
               "
               placeholder="Search Products..."
               value={inputValue}

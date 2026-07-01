@@ -6,6 +6,7 @@ import { fetchProducts } from "../redux/slices/productsSlice";
 import ProductCard from "../components/ProductCard";
 import Banner from "../components/Banner";
 import WhatWeSell from "../components/WhatWeSell";
+import FAQ from "../components/FAQ";
 
 import { formatCategory } from "../utils/formatCategory";
 
@@ -119,6 +120,8 @@ function HomePage() {
       </div >
 
       {productsSection}
+
+      <FAQ/>
 
     </>
   );
