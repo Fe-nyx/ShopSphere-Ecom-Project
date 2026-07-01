@@ -68,18 +68,18 @@ function LoginPage() {
 
 
   return (
-    <div className="flex justify-center items-center py-16 px-4">
+    <div className="flex justify-center items-center py-8 md:py-16 px-4">
 
-      <div className="w-full max-w-md border rounded-lg shadow-md p-8">
+      <div className="w-full max-w-md border rounded-lg shadow-md p-4 md:p-8">
 
-        <h1 className="text-3xl font-bold text-center mb-8">
+        <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-8">
           Login
         </h1>
 
         <form
           noValidate
           onSubmit={handleSubmit}
-          className="flex flex-col gap-4"
+          className="flex flex-col gap-2 md:gap-4"
         >
           <label className="font-medium">
             Email
@@ -87,7 +87,7 @@ function LoginPage() {
 
           <input
             placeholder="Enter your email"
-            className="border rounded px-3 py-2 w-full"
+            className="border rounded px-1 py-1 md:px-3 md:py-2 w-full"
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
@@ -99,13 +99,13 @@ function LoginPage() {
             </p>
           )}
 
-          <label className="font-medium">
+          <label className="font-medium mt-2">
             Password
           </label>
 
           <input
             placeholder="Enter your password"
-            className="border rounded px-3 py-2 w-full"
+            className="border rounded px-1 py-1 md:px-3 md:py-2 w-full"
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
@@ -119,7 +119,7 @@ function LoginPage() {
 
           <button
             type="submit"
-            className="cursor-pointer bg-black text-white py-2 rounded hover:bg-gray-800 transition mt-2"
+            className="cursor-pointer bg-black text-white py-1 md:py-2 rounded hover:bg-gray-800 transition mt-2"
           >
             Login
           </button>
