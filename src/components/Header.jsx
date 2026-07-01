@@ -109,13 +109,13 @@ function Header() {
       </div>
 
       {showSearch && (
-        <div className="border-t p-2">
+        <div className="border-t p-1 md:p-2">
           <form
             onSubmit={handleSearchSubmit}
-            className="flex gap-2"
+            className="flex gap-1 md:gap-2"
           >
             <input
-              className="flex-1 border rounded px-3 py-2"
+              className="flex-1 border rounded px-1 md:px-3 md:py-2"
               placeholder="Search Products..."
               value={inputValue}
               onChange={(event)=>setInputValue(event.target.value)}
@@ -123,7 +123,7 @@ function Header() {
 
             <button
                 type="submit"
-                className="bg-blue-500 text-white px-4 rounded hover:bg-blue-600 cursor-pointer"
+                className="bg-blue-500 text-white px-3 md:px-4 rounded hover:bg-blue-600 cursor-pointer"
             >
               Search
             </button>

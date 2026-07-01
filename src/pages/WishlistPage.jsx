@@ -12,7 +12,7 @@ function WishlistPage() {
 
   if (wishlist.length === 0) {
     return (
-      <h1 className="text-xl md:text-3xl text-center font-semibold my-8 md:my-12">
+      <h1 className="text-xl md:text-2xl lg:3xl text-center font-semibold my-8 md:my-12">
         Your wishlist is empty
       </h1>
     );
@@ -61,8 +61,18 @@ function WishlistPage() {
 
             <button
               onClick={() => dispatch(removeFromWishlist(item.id))}
-              className="cursor-pointer border border-red-500 text-red-500 px-1 py-1 rounded hover:bg-red-500 hover:text-white transition"
-            >
+              className="
+                cursor-pointer
+                border
+                border-red-500
+                text-red-500
+                px-1
+                py-1.5
+                md:text-xl
+                rounded
+                hover:bg-red-500
+                hover:text-white transition
+              ">
               <FiTrash2/>
             </button>
 
