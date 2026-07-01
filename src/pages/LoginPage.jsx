@@ -1,9 +1,6 @@
-import { useState } from "react"
-
-
+import { useState } from "react";
 
 function LoginPage() {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -23,55 +20,41 @@ function LoginPage() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (trimmedEmail === "") {
-      setEmailError("Email is required")
+      setEmailError("Email is required");
       isValid = false;
-    }
-    else if (!emailRegex.test(trimmedEmail)) {
-      setEmailError("Invalid Email")
+    } else if (!emailRegex.test(trimmedEmail)) {
+      setEmailError("Invalid Email");
       isValid = false;
     }
 
     if (trimmedPassword === "") {
-      setPasswordError("Password is required")
+      setPasswordError("Password is required");
       isValid = false;
-    }
-
-    else if (trimmedPassword.length < 8) {
-      setPasswordError("Password must contain atleast 8 characters")
+    } else if (trimmedPassword.length < 8) {
+      setPasswordError("Password must contain atleast 8 characters");
       isValid = false;
-    }
-
-    else if (!(/[A-Z]/.test(trimmedPassword))) {
-      setPasswordError("Password must contain atleast one uppercase letter")
+    } else if (!/[A-Z]/.test(trimmedPassword)) {
+      setPasswordError("Password must contain atleast one uppercase letter");
       isValid = false;
-    }
-
-    else if (!(/[a-z]/.test(trimmedPassword))) {
-      setPasswordError("Password must contain atleast one lowercase letter")
+    } else if (!/[a-z]/.test(trimmedPassword)) {
+      setPasswordError("Password must contain atleast one lowercase letter");
       isValid = false;
-    }
-
-    else if (!(/[0-9]/.test(trimmedPassword))) {
-      setPasswordError("Password must contain atleast one number")
+    } else if (!/[0-9]/.test(trimmedPassword)) {
+      setPasswordError("Password must contain atleast one number");
       isValid = false;
-    }
-
-    else if (!(/[!@#$%^&*(),.?":{}|<>]/.test(trimmedPassword))) {
-      setPasswordError("Password must contain atleast one special character")
+    } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(trimmedPassword)) {
+      setPasswordError("Password must contain atleast one special character");
       isValid = false;
     }
 
     if (isValid) {
-      alert("Login Successful")
+      alert("Login Successful");
     }
   }
 
-
   return (
     <div className="flex justify-center items-center py-8 md:py-16 px-4">
-
       <div className="w-full max-w-md border rounded-lg shadow-md p-4 md:p-8">
-
         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-8">
           Login
         </h1>
@@ -81,9 +64,7 @@ function LoginPage() {
           onSubmit={handleSubmit}
           className="flex flex-col gap-2 md:gap-4"
         >
-          <label className="font-medium">
-            Email
-          </label>
+          <label className="font-medium">Email</label>
 
           <input
             placeholder="Enter your email"
@@ -93,15 +74,9 @@ function LoginPage() {
             onChange={(event) => setEmail(event.target.value)}
           />
 
-          {emailError && (
-            <p className="text-red-500 text-sm">
-              {emailError}
-            </p>
-          )}
+          {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
 
-          <label className="font-medium mt-2">
-            Password
-          </label>
+          <label className="font-medium mt-2">Password</label>
 
           <input
             placeholder="Enter your password"
@@ -112,25 +87,23 @@ function LoginPage() {
           />
 
           {passwordError && (
-            <p className="text-red-500 text-sm">
-              {passwordError}
-            </p>
+            <p className="text-red-500 text-sm">{passwordError}</p>
           )}
 
           <button
             type="submit"
-            className="cursor-pointer bg-black text-white py-1 md:py-2 rounded hover:bg-gray-800 transition mt-2"
+            className="
+              py-1 md:py-2
+              mt-2
+              btn-primary
+            "
           >
             Login
           </button>
-
         </form>
-
       </div>
-
-
     </div>
-  )
+  );
 }
 
-export default LoginPage
+export default LoginPage;

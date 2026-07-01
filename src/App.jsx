@@ -13,7 +13,7 @@ import ScrollToTop from "./components/ScrollToTop"
 function App() {
 
   return (
-    <>
+    <div className="min-h-screen bg-[var(--color-background)]">
       <ScrollToTop />
       <Header />
       <Routes>
@@ -24,7 +24,7 @@ function App() {
         <Route path="/product/:id" element={<ProductDetailsPage />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   )
 }
 

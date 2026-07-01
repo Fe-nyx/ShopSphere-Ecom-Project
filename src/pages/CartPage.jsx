@@ -70,7 +70,7 @@ function CartPage() {
 
               <button
                 onClick={() => dispatch(increaseQty(item.product.id))}
-                className="cursor-pointer border md:text-xl px-1.5 md:px-2 pb-0.5 md:pb-1 rounded"
+                className="md:text-xl px-1.5 md:px-2 pb-0.5 md:pb-1 btn-secondary"
               >
                 +
               </button>
@@ -81,7 +81,7 @@ function CartPage() {
 
               <button
                 onClick={() => dispatch(decreaseQty(item.product.id))}
-                className="cursor-pointer border md:text-xl px-2 md:px-2.75 pb-0.5 md:pb-1 rounded"
+                className="md:text-xl px-2 md:px-2.75 pb-0.5 md:pb-1 btn-secondary"
               >
                 -
               </button>
@@ -91,16 +91,10 @@ function CartPage() {
             <button
               onClick={() => dispatch(deleteFromCart(item.product.id))}
               className="
-                cursor-pointer
-                border
-                border-red-500
-                text-red-500
                 px-1
                 py-1.5
                 md:text-xl
-                rounded
-                hover:bg-red-500
-                hover:text-white transition
+                btn-danger
               ">
               <FiTrash2/>
             </button>
@@ -121,8 +115,11 @@ function CartPage() {
         </p>
 
         <button
-          className="cursor-pointer w-full bg-black text-white py-2 md:py-3 rounded hover:bg-gray-800 transition"
-        >
+          className="
+            w-full
+            py-2 md:py-3
+            btn-primary
+          ">
           Proceed to Checkout
         </button>
 

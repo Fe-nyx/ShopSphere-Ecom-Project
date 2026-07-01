@@ -109,8 +109,8 @@ function HomePage() {
             }}
             className={
               selectedCategory === category
-                ? "border px-4 py-2 rounded-full bg-black text-white hover:bg-gray-800 cursor-pointer transition duration-200"
-                : "border px-4 py-2 rounded-full hover:bg-gray-100 cursor-pointer transition duration-200"
+                ? "px-4 py-2 rounded-full btn-primary"
+                : "px-4 py-2 rounded-full btn-secondary"
             }
           >
             {formatCategory(category)}

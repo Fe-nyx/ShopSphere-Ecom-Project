@@ -1,9 +1,13 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
+import { useState } from "react";
+
 import { FiSearch, FiHeart, FiShoppingCart, FiBell, FiUser, FiX } from "react-icons/fi"
 
 import { updateSearchValue } from "../redux/slices/searchSlice";
-import { useState } from "react";
+
+import logo from "../assets/logo.png"
+
 
 function Header() {
   const dispatch = useDispatch();
@@ -28,8 +32,8 @@ function Header() {
     event.preventDefault();
     navigate("/");
     dispatch(updateSearchValue(inputValue.trim()));
-    
-    
+
+
     // Thought of closing the search bar after submitting but later thought it was a bad UX choice
     // setShowSearch(false);
   }
@@ -38,18 +42,24 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
 
-      <div className="flex items-center justify-between px-2 md:px-4 py-2 md:py-3">
+      <div className="flex items-center justify-between px-4">
 
         <Link
           to="/"
-          className="hover:text-blue-600"
+          className="flex items-center gap-3"
         >
-          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold">
+          <img
+            src={logo}
+            alt="ShopSphere Logo"
+            className="h-10 md:h-15 w-10 md:w-15 object-contain"
+          />
+
+          <h1 className="hidden md:block text-2xl font-bold text-[var(--color-heading)]">
             ShopSphere
           </h1>
         </Link>
 
-          
+
 
         <div className="flex items-center gap-3 md:gap-5">
 
@@ -63,7 +73,7 @@ function Header() {
           <Link
             to="/login"
           >
-            <FiUser className="text-xl md:text-2xl"/>
+            <FiUser className="text-xl md:text-2xl" />
           </Link>
 
           <Link
@@ -73,7 +83,7 @@ function Header() {
             <FiHeart className="text-xl md:text-2xl" />
             <span
               className="
-                bg-red-500
+                bg-[var(--color-accent)]
                 text-white
                 text-xs
                 px-2
@@ -91,7 +101,7 @@ function Header() {
             <FiShoppingCart className="text-xl md:text-2xl" />
             <span
               className="
-                bg-blue-500
+                bg-[var(--color-accent)]
                 text-white
                 text-xs
                 px-2
@@ -115,16 +125,35 @@ function Header() {
             className="flex gap-1 md:gap-2"
           >
             <input
-              className="flex-1 border rounded px-1 md:px-3 md:py-2"
+              className="
+                flex-1
+                border
+                border-[var(--color-border)]
+                focus:outline-none
+                focus:ring-2
+                focus:ring-[var(--color-accent)]
+                rounded
+                px-1 md:px-3
+                md:py-2
+              "
               placeholder="Search Products..."
               value={inputValue}
-              onChange={(event)=>setInputValue(event.target.value)}
+              onChange={(event) => setInputValue(event.target.value)}
             />
 
             <button
-                type="submit"
-                className="bg-blue-500 text-white px-3 md:px-4 rounded hover:bg-blue-600 cursor-pointer"
-            >
+              type="submit"
+              className="
+                bg-[var(--color-primary)]
+                hover:bg-[var(--color-primary-hover)]
+                hover:shadow-md
+                transition-all
+                duration-200
+                text-white
+                px-3 md:px-4
+                rounded
+                cursor-pointer
+              ">
               Search
             </button>
           </form>

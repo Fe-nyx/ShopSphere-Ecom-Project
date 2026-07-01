@@ -1,1 +1,57 @@
 @import "tailwindcss";
+
+:root {
+  --color-primary: #2C3639;
+  --color-primary-hover: #3F4E4F;
+
+  --color-accent: #A27B5C;
+
+  --color-border: #DCD7C9;
+
+  --color-background: #F8F7F4;
+
+  --color-heading: #2C3639;
+
+  --color-text: #3F4E4F;
+}
+
+@layer components {
+  .btn-primary {
+    @apply
+      bg-[var(--color-primary)]
+      text-white
+      rounded
+      transition-all
+      duration-200
+      hover:bg-[var(--color-primary-hover)]
+      hover:shadow-md
+      cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply
+      bg-white
+      border
+      border-[var(--color-accent)]
+      rounded
+      transition-all
+      duration-200
+      hover:bg-[var(--color-border)]
+      hover:shadow-md
+      cursor-pointer;
+  }
+
+  .btn-danger {
+    @apply
+      border
+      border-red-500
+      text-red-500
+      rounded
+      transition-all
+      duration-200
+      hover:bg-red-500
+      hover:text-white
+      hover:shadow-md
+      cursor-pointer;
+  }
+}

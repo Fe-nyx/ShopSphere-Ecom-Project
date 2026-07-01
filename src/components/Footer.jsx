@@ -64,7 +64,16 @@ function Footer() {
             placeholder="Enter your email"
           />
 
-          <button className="text-sm md:text-base bg-white text-black px-1.5 md:px-4 py-1 md:py-2 rounded mt-2 cursor-pointer">
+          <button
+            className="
+              text-sm md:text-base
+              px-1.5 md:px-4
+              py-1 md:py-2
+              mt-2
+              btn-secondary
+              text-black
+            "
+          >
             Subscribe
           </button>
 

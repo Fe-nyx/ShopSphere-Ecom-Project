@@ -1,18 +1,18 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom";
 
 import { fetchProductDetails } from "../redux/slices/productDetailsSlice";
 import { addToCart } from "../redux/slices/cartSlice";
-import { addToWishlist, removeFromWishlist } from "../redux/slices/wishlistSlice";
+import {
+  addToWishlist,
+  removeFromWishlist,
+} from "../redux/slices/wishlistSlice";
 
 import { formatCategory } from "../utils/formatCategory";
 
 import { FiHeart } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
-
-
-
 
 function ProductDetailsPage() {
   const dispatch = useDispatch();
@@ -23,24 +23,26 @@ function ProductDetailsPage() {
     dispatch(fetchProductDetails(id));
   }, [dispatch, id]);
 
-  const { productDetails, status, error } = useSelector((state) => state.productDetails);
+  const { productDetails, status, error } = useSelector(
+    (state) => state.productDetails,
+  );
   const cart = useSelector((state) => state.cart);
   const wishlist = useSelector((state) => state.wishlist);
 
   const inCart = cart.some((item) => {
-    return item.product.id === productDetails?.id
+    return item.product.id === productDetails?.id;
   });
 
   const inWishlist = wishlist.some((item) => {
     return item.id === productDetails?.id;
-  })
+  });
 
   if (status === "loading") {
-    return <h1>Product is loading...Please Wait</h1>
+    return <h1>Product is loading...Please Wait</h1>;
   }
 
   if (status === "failed") {
-    return <h1>{error}</h1>
+    return <h1>{error}</h1>;
   }
 
   const rating = Math.round(productDetails?.rating?.rate || 0);
@@ -100,14 +102,18 @@ function ProductDetailsPage() {
           </p>
 
           <div className="flex gap-3">
-
             <button
-              className="cursor-pointer bg-black text-white px-6 py-2 rounded mr-2 flex-1"
+              className="
+                px-6
+                py-2
+                mr-2
+                flex-1
+                btn-primary
+              "
               onClick={() => {
                 if (inCart) {
                   navigate("/cart");
-                }
-                else {
+                } else {
                   dispatch(addToCart(productDetails));
                 }
               }}
@@ -119,12 +125,11 @@ function ProductDetailsPage() {
               onClick={() => {
                 if (inWishlist) {
                   dispatch(removeFromWishlist(productDetails.id));
-                }
-                else {
+                } else {
                   dispatch(addToWishlist(productDetails));
                 }
               }}
-              className="cursor-pointer border px-4 py-2 rounded hover:bg-gray-100 transition"
+              className="px-4 py-2 btn-secondary"
             >
               {inWishlist ? (
                 <FaHeart className="text-red-500 text-xl" />
@@ -132,15 +137,11 @@ function ProductDetailsPage() {
                 <FiHeart className="text-xl" />
               )}
             </button>
-
           </div>
-
         </div>
-
       </div>
-
     </div>
-  )
+  );
 }
 
-export default ProductDetailsPage
+export default ProductDetailsPage;

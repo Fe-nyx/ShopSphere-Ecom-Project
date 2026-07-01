@@ -75,7 +75,13 @@ function ProductCard({ product }) {
 
             <div className="flex gap-2 md:gap-4">
                 <button
-                    className="cursor-pointer flex-1 bg-black text-white px-2 py-1 md:py-2 rounded pb-1.5"
+                    className="
+                        flex-1
+                        px-2
+                        py-1 md:py-2
+                        pb-1.5
+                        btn-primary
+                    "
                     onClick={() => {
                         if (inCart) {
                             navigate("/cart");
@@ -89,7 +95,7 @@ function ProductCard({ product }) {
                 </button>
 
                 <button
-                    className="cursor-pointer border rounded px-4 py-1 md:py-2 hover:bg-gray-100 transition"
+                    className="px-4 py-1 md:py-2 btn-secondary"
                     onClick={() => {
                         if (inWishlist) {
                             dispatch(removeFromWishlist(product.id));
