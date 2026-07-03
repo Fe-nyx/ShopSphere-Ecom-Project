@@ -7,19 +7,22 @@ const slides = [
     title: "Shop Smarter, Live Better",
     subtitle: "Discover amazing products at unbeatable prices.",
     button: "Shop Now",
-    background: "from-[#6B5848] to-[#3F4E4F]",
+    //background: "from-[#2C3639] to-[#49504A]",
+    background: "from-[#2C3639] to-[#434A46]",
   },
   {
     title: "Summer Sale",
     subtitle: "Save up to 20% on all products.",
     button: "Explore Deals",
-    background: "from-[#3F4E4F] to-[#A27B5C]",
+    background: "from-[#434A46] to-[#4C4A45]",
+    //background: "from-[#49504A] to-[#5B5850]",
   },
   {
     title: "Free Shipping",
     subtitle: "Fast delivery on every order with easy returns.",
     button: "Start Shopping",
-    background: "from-[#A27B5C] to-[#6B5848]",
+    background: "from-[#4C4A45] to-[#2C3639]",
+    //background: "from-[#5B5850] to-[#2C3639]",
   },
 ];
 
@@ -51,7 +54,7 @@ function Banner() {
       className={`
         relative
         text-center
-        py-12 md:py-18 lg:py-24
+        py-12 md:py-24 lg:py-32
         px-4 md:px-6
         bg-gradient-to-r
         ${slides[currentSlide].background}
@@ -73,7 +76,7 @@ function Banner() {
         {slides[currentSlide].subtitle}
       </p>
 
-      <button className="text-sm md:text-base btn-primary mt-6 px-1.5 py-0.5 md:px-2 md:py-1">
+      <button className="text-sm md:text-base btn-secondary mt-6 px-1.5 py-0.5 md:px-2 md:py-1">
         {slides[currentSlide].button}
       </button>
 

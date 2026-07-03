@@ -62,42 +62,42 @@ function ProductDetailsPage() {
         </div>
 
         <div>
-          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4">
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 text-[var(--color-coal)]">
             {productDetails?.title}
           </h1>
 
-          <div className="mb-2 md:mb-4">
+          <div className="mb-2 md:mb-4 text-[var(--color-coal)]">
             <p className="text-xl md:text-2xl lg:text-3xl font-bold">
               ${productDetails?.price}
             </p>
 
-            <p className="text-sm md:text-base text-gray-500 line-through">
+            <p className="text-sm md:text-base text-[var(--color-slate)]/70 line-through">
               ${originalPrice}
             </p>
           </div>
 
-          <p className="text-gray-500 mb-2">
+          <p className="text-[var(--color-slate)]/70 mb-2">
             {formatCategory(productDetails?.category)}
           </p>
 
           <div className="flex items-center mb-4 gap-1">
-            <span className="text-yellow-500">
+            <span className="text-[var(--color-brown)]">
               {"★".repeat(rating)}
               {"☆".repeat(5 - rating)}
             </span>
 
-            <span className="text-gray-600 text-sm">
+            <span className="text-[var(--color-brown)]/80 text-sm">
               ({productDetails?.rating?.count} reviews)
             </span>
           </div>
 
-          <div className="text-sm md:text-base bg-gray-100 rounded p-2 md:p-4 mb-4 md:mb-6 text-green-600">
+          <div className="text-sm md:text-base bg-[var(--color-beige)] rounded p-2 md:p-4 mb-4 md:mb-6 text-[var(--color-coal)]/70">
             <p>✓ Free Shipping</p>
             <p>✓ Secure Payment</p>
             <p>✓ Easy Returns</p>
           </div>
 
-          <p className="text-gray-700 leading-relaxed mb-4 md:mb-6">
+          <p className="text-[var(--color-coal)] leading-relaxed mb-4 md:mb-6">
             {productDetails?.description}
           </p>
 
@@ -132,7 +132,7 @@ function ProductDetailsPage() {
               className="px-4 py-2 btn-secondary"
             >
               {inWishlist ? (
-                <FaHeart className="text-red-500 text-xl" />
+                <FaHeart className="text-[var(--color-brown)] text-xl" />
               ) : (
                 <FiHeart className="text-xl" />
               )}

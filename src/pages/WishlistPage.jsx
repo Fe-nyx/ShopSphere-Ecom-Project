@@ -22,7 +22,7 @@ function WishlistPage() {
 
   return (
     <>
-      <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center my-4 md:my-8">
+      <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center my-4 md:my-8 text-[var(--color-coal)]">
         Wishlist
       </h1>
 
@@ -49,13 +49,13 @@ function WishlistPage() {
               to={`/product/${item.id}`}
               className="hover:text-blue-600 transition"
             >
-              <p className="text-base md:text-lg font-semibold mb-1 md:mb-2 line-clamp-2">
+              <p className="text-base md:text-lg font-semibold mb-1 md:mb-2 line-clamp-2 text-[var(--color-coal)]">
                 {item.title}
               </p>
             </Link>
 
 
-            <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-8">
+            <p className="text-sm md:text-base mb-4 md:mb-8 text-[var(--color-coal)]/70">
               Price: ${item.price}
             </p>
 

@@ -54,7 +54,7 @@ function LoginPage() {
 
   return (
     <div className="flex justify-center items-center py-8 md:py-16 px-4">
-      <div className="w-full max-w-md border rounded-lg shadow-md p-4 md:p-8">
+      <div className="text-[var(--color-coal)] w-full max-w-md border rounded-lg shadow-md p-4 md:p-8">
         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-8">
           Login
         </h1>
@@ -68,7 +68,7 @@ function LoginPage() {
 
           <input
             placeholder="Enter your email"
-            className="border rounded px-1 py-1 md:px-3 md:py-2 w-full"
+            className="input px-1 py-1 md:px-3 md:py-2 w-full"
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
@@ -80,7 +80,7 @@ function LoginPage() {
 
           <input
             placeholder="Enter your password"
-            className="border rounded px-1 py-1 md:px-3 md:py-2 w-full"
+            className="input px-1 py-1 md:px-3 md:py-2 w-full"
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}

@@ -41,32 +41,39 @@ function ProductCard({ product }) {
                         className="w-full h-40 md:h-56 object-contain mb-4 md:mb-8"
                     />
 
-                    <p className="font-semibold text-base md:text-lg md:mb-2 h-12 md:h-14 line-clamp-2">
+                    <p className="
+                        font-semibold
+                        text-base md:text-lg
+                        md:mb-2
+                        h-12 md:h-14
+                        line-clamp-2
+                        text-[var(--color-coal)]
+                    ">
                         {product.title}
                     </p>
 
                     <div className="flex items-center md:mb-2 gap-1">
-                        <span className="text-yellow-500">
+                        <span className="text-[var(--color-brown)]">
                             {"★".repeat(rating)}
                             {"☆".repeat(5 - rating)}
                         </span>
 
-                        <span className="text-gray-600 text-sm">
+                        <span className="text-[var(--color-brown)]/80 text-sm">
                             ({product.rating.count})
                         </span>
                     </div>
 
                     <div className="flex items-center md:mb-2 gap-1">
-                        <span className="text-lg md:text-xl font-semibold">
+                        <span className="text-lg md:text-xl font-semibold text-[var(--color-coal)]">
                             ${product.price}
                         </span>
 
-                        <span className="text-sm text-gray-500 line-through">
+                        <span className="text-sm line-through text-[var(--color-slate)]/70">
                             ${originalPrice}
                         </span>
                     </div>
 
-                    <p className="text-sm text-gray-500 mb-2 md:mb-4">
+                    <p className="text-sm text-[var(--color-slate)]/70 mb-2 md:mb-4">
                         {formatCategory(product.category)}
                     </p>
 
@@ -106,7 +113,7 @@ function ProductCard({ product }) {
                     }}
                 >
                     {inWishlist ? (
-                        <FaHeart className="text-red-500 text-xl" />
+                        <FaHeart className="text-[var(--color-brown)] text-xl" />
                     ) : (
                         <FiHeart className="text-xl" />
                     )}
