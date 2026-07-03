@@ -98,7 +98,7 @@ function HomePage() {
       <WhatWeSell />
 
       <div
-        className="flex flex-wrap gap-2 mb-8 scroll-mt-20 px-6"
+        className="flex flex-wrap gap-2 mb-8 scroll-mt-20 px-6 bg-[var(--color-cream)]"
         ref={productsRef}
       >
         {categories.map((category) => (

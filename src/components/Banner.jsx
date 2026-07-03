@@ -1,23 +1,25 @@
 import { useEffect, useState } from "react";
 
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+
 const slides = [
   {
     title: "Shop Smarter, Live Better",
     subtitle: "Discover amazing products at unbeatable prices.",
     button: "Shop Now",
-    background: "from-blue-600 to-indigo-700",
+    background: "from-[#6B5848] to-[#3F4E4F]",
   },
   {
     title: "Summer Sale",
     subtitle: "Save up to 20% on all products.",
     button: "Explore Deals",
-    background: "from-orange-500 to-red-600",
+    background: "from-[#3F4E4F] to-[#A27B5C]",
   },
   {
     title: "Free Shipping",
     subtitle: "Fast delivery on every order with easy returns.",
     button: "Start Shopping",
-    background: "from-emerald-500 to-teal-600",
+    background: "from-[#A27B5C] to-[#6B5848]",
   },
 ];
 
@@ -42,17 +44,21 @@ function Banner() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentSlide]);
 
   return (
     <section
-      className="
+      className={`
         relative
         text-center
         py-12 md:py-18 lg:py-24
         px-4 md:px-6
-        bg-gray-100
-      "
+        bg-gradient-to-r
+        ${slides[currentSlide].background}
+        text-[var(--color-cream)]
+        transition-all
+        duration-500
+      `}
     >
       <h1
         className="
@@ -67,7 +73,7 @@ function Banner() {
         {slides[currentSlide].subtitle}
       </p>
 
-      <button className="btn-primary mt-6">
+      <button className="text-sm md:text-base btn-primary mt-6 px-1.5 py-0.5 md:px-2 md:py-1">
         {slides[currentSlide].button}
       </button>
 
@@ -76,18 +82,18 @@ function Banner() {
         className="
           absolute
           left-4 md:left-8
-          top-1/2
+          top-2/3 md:top-1/2 
           -translate-y-1/2
           cursor-pointer
-          bg-white/80
-          hover:bg-white
+          bg-white/60
+          hover:bg-white/80
           rounded-full
-          p-3
+          py-1 md:p-2
           shadow-md
           transition
         "
       >
-        ←
+        <FiChevronLeft className="md:text-xl text-[var(--color-slate)]" />
       </button>
 
       <button
@@ -95,18 +101,18 @@ function Banner() {
         className="
           absolute
           right-4 md:right-8
-          top-1/2
+          top-2/3 md:top-1/2 
           -translate-y-1/2
           cursor-pointer
-          bg-white/80
-          hover:bg-white
+          bg-white/60
+          hover:bg-white/80
           rounded-full
-          p-3
+          py-1 md:p-2
           shadow-md
           transition
         "
       >
-        →
+        <FiChevronRight className="md:text-xl text-[var(--color-slate)]"/>
       </button>
 
         <div className="flex justify-center gap-2 mt-6">
@@ -115,8 +121,8 @@ function Banner() {
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`
-                w-3
-                h-3
+                w-1 md:w-3
+                h-2 md:h-3
                 rounded-full
                 transition-all
                 duration-300

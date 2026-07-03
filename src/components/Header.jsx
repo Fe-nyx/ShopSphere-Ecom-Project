@@ -40,7 +40,7 @@ function Header() {
 
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md">
+    <header className="sticky top-0 z-50 shadow-md bg-[var(--color-cream)]">
 
       <div className="flex items-center justify-between px-4">
 
@@ -54,7 +54,7 @@ function Header() {
             className="h-10 md:h-15 w-10 md:w-15 object-contain"
           />
 
-          <h1 className="hidden md:block text-2xl font-bold text-[var(--color-heading)]">
+          <h1 className="hidden md:block text-2xl font-bold text-[var(--color-coal)]">
             ShopSphere
           </h1>
         </Link>
@@ -65,7 +65,7 @@ function Header() {
 
           <button
             onClick={() => setShowSearch(!showSearch)}
-            className="text-xl md:text-2xl cursor-pointer"
+            className="text-xl md:text-2xl cursor-pointer text-[var(--color-coal)]"
           >
             {showSearch ? <FiX /> : <FiSearch />}
           </button>
@@ -73,17 +73,17 @@ function Header() {
           <Link
             to="/login"
           >
-            <FiUser className="text-xl md:text-2xl" />
+            <FiUser className="text-xl md:text-2xl text-[var(--color-coal)]" />
           </Link>
 
           <Link
             to="/wishlist"
             className="flex items-center gap-0.5"
           >
-            <FiHeart className="text-xl md:text-2xl" />
+            <FiHeart className="text-xl md:text-2xl text-[var(--color-coal)]" />
             <span
               className="
-                bg-[var(--color-accent)]
+                bg-[var(--color-coal)]
                 text-white
                 text-xs
                 px-2
@@ -98,10 +98,10 @@ function Header() {
             to="/cart"
             className="flex items-center gap-0.5"
           >
-            <FiShoppingCart className="text-xl md:text-2xl" />
+            <FiShoppingCart className="text-xl md:text-2xl text-[var(--color-coal)]" />
             <span
               className="
-                bg-[var(--color-accent)]
+                bg-[var(--color-coal)]
                 text-white
                 text-xs
                 px-2
@@ -112,7 +112,7 @@ function Header() {
             </span>
           </Link>
 
-          <FiBell className="text-xl md:text-2xl" />
+          <FiBell className="text-xl md:text-2xl text-[var(--color-coal)]" />
 
         </div>
 
@@ -130,6 +130,7 @@ function Header() {
                 px-1 md:px-3
                 md:py-2
                 input
+                
               "
               placeholder="Search Products..."
               value={inputValue}
@@ -139,15 +140,8 @@ function Header() {
             <button
               type="submit"
               className="
-                bg-[var(--color-primary)]
-                hover:bg-[var(--color-primary-hover)]
-                hover:shadow-md
-                transition-all
-                duration-200
-                text-white
                 px-3 md:px-4
-                rounded
-                cursor-pointer
+                btn-primary
               ">
               Search
             </button>

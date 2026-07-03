@@ -14,7 +14,7 @@ function Footer() {
   }
 
   return (
-    <footer className="bg-gray-900 text-white mt-12">
+    <footer className="bg-[var(--color-coal)] text-[var(--color-beige)] mt-12">
       <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 p-4 md:p-8">
         <div>
           <h3 className="font-semibold md:font-bold text-lg mb-2 md:mb-4">
@@ -90,7 +90,13 @@ function Footer() {
           </h3>
 
           <input
-            className="text-sm md:text-base border border-gray-500 rounded px-1.5 md:px-3 py-1 md:py-2 w-full bg-gray-800 text-white placeholder-gray-400"
+            className="
+              input
+              text-sm md:text-base
+              px-1.5 md:px-3
+              py-1 md:py-2
+              w-full
+              "
             placeholder="Enter your email"
           />
 

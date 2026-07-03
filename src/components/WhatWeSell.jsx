@@ -1,50 +1,4 @@
-// function WhatWeSell() {
 
-
-//     function tagline(maintext, subtext) {
-//         return (
-//             <div className="border rounded p-2 md:p-6 text-center">
-
-//                     <h3 className="text-sm md:text-base font-semibold mb-1 md:mb-2">
-//                         {maintext}
-//                     </h3>
-
-//                     <p className="text-xs md:text-sm text-gray-600">
-//                         {subtext}
-//                     </p>
-
-//                 </div>
-//         );
-//     }
-
-
-//     return (
-//         <section className="py-8 md:py-12 px-6">
-//             <h2
-//                 className="
-//                 text-xl md:text-2xl lg:text-3xl
-//                 font-bold
-//                 text-center
-//                 mb-8 md:mb-12
-//                 "
-//             >
-//                 Why Shop With Us?
-//             </h2>
-
-//             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-//                 {tagline("Free Shipping", "Fast and reliable delivery on all orders.")}
-
-//                 {tagline("Easy Returns","Hassle-free returns and refunds.")}
-
-//                 {tagline("Secure Payments","Your transactions are always protected.")}
-
-//                 {tagline("24/7 Support","We're here whenever you need help.")}
-
-//             </div>
-//         </section>
-//     );
-// }
 
 const features = [
   {
@@ -71,6 +25,7 @@ function WhatWeSell() {
         className="
             py-12 md:py-16 lg:py-20
             px-4 md:px-6
+            bg-[var(--color-cream)]
         ">
       <h2
         className="

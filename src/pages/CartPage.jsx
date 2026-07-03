@@ -53,7 +53,7 @@ function CartPage() {
           <div className="flex-1">
 
             <Link
-              to={`/product/${item.id}`}
+              to={`/product/${item.product.id}`}
               className="hover:text-blue-600 transition"
             >
               <p className="text-base md:text-lg font-semibold mb-1 md:mb-2 line-clamp-2">
