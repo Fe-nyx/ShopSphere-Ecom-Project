@@ -40,7 +40,7 @@ function Header() {
 
 
   return (
-    <header className="sticky top-0 z-50 shadow-md bg-[var(--color-beige)]">
+    <header className="sticky top-0 z-50 shadow-md bg-[var(--color-beige)] text-[var(--color-coal)]">
 
       <div className="flex items-center justify-between px-4">
 
@@ -54,7 +54,7 @@ function Header() {
             className="h-10 md:h-15 w-10 md:w-15 object-contain"
           />
 
-          <h1 className="hidden md:block text-2xl font-bold text-[var(--color-coal)]">
+          <h1 className="hidden md:block text-2xl font-bold hover:text-[var(--color-slate)]/90">
             ShopSphere
           </h1>
         </Link>
@@ -65,7 +65,7 @@ function Header() {
 
           <button
             onClick={() => setShowSearch(!showSearch)}
-            className="text-xl md:text-2xl cursor-pointer text-[var(--color-coal)]"
+            className="text-xl md:text-2xl cursor-pointer hover:text-[var(--color-slate)]/90"
           >
             {showSearch ? <FiX /> : <FiSearch />}
           </button>
@@ -73,14 +73,14 @@ function Header() {
           <Link
             to="/login"
           >
-            <FiUser className="text-xl md:text-2xl text-[var(--color-coal)]" />
+            <FiUser className="text-xl md:text-2xl hover:text-[var(--color-slate)]/90" />
           </Link>
 
           <Link
             to="/wishlist"
-            className="flex items-center gap-0.5"
+            className="flex items-center gap-0.5 hover:text-[var(--color-slate)]/90"
           >
-            <FiHeart className="text-xl md:text-2xl text-[var(--color-coal)]" />
+            <FiHeart className="text-xl md:text-2xl" />
             <span
               className="
                 bg-[var(--color-coal)]
@@ -96,9 +96,9 @@ function Header() {
 
           <Link
             to="/cart"
-            className="flex items-center gap-0.5"
+            className="flex items-center gap-0.5 hover:text-[var(--color-slate)]/90"
           >
-            <FiShoppingCart className="text-xl md:text-2xl text-[var(--color-coal)]" />
+            <FiShoppingCart className="text-xl md:text-2xl" />
             <span
               className="
                 bg-[var(--color-coal)]
@@ -112,7 +112,7 @@ function Header() {
             </span>
           </Link>
 
-          <FiBell className="text-xl md:text-2xl text-[var(--color-coal)]" />
+          <FiBell className="text-xl md:text-2xl hover:text-[var(--color-slate)]/90 cursor-pointer" />
 
         </div>
 

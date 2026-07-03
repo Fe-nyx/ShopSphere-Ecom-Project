@@ -28,7 +28,7 @@ function CartPage() {
 
 
   return (
-    <>
+    <div className="text-[var(--color-coal)]">
       <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center my-4 md:my-8">
         Shopping Cart
       </h1>
@@ -54,7 +54,7 @@ function CartPage() {
 
             <Link
               to={`/product/${item.product.id}`}
-              className="hover:text-blue-600 transition"
+              className="hover:text-[var(--color-slate)]/80"
             >
               <p className="text-base md:text-lg font-semibold mb-1 md:mb-2 line-clamp-2">
                 {item.product.title}
@@ -124,7 +124,7 @@ function CartPage() {
         </button>
 
       </div>
-    </>
+    </div>
   )
 }
 

@@ -47,15 +47,15 @@ function WishlistPage() {
 
             <Link
               to={`/product/${item.id}`}
-              className="hover:text-blue-600 transition"
+              className="text-[var(--color-coal)] hover:text-[var(--color-slate)]/80"
             >
-              <p className="text-base md:text-lg font-semibold mb-1 md:mb-2 line-clamp-2 text-[var(--color-coal)]">
+              <p className="text-base md:text-lg font-semibold mb-1 md:mb-2 line-clamp-2">
                 {item.title}
               </p>
             </Link>
 
 
-            <p className="text-sm md:text-base mb-4 md:mb-8 text-[var(--color-coal)]/70">
+            <p className="text-sm md:text-base mb-4 md:mb-8 text-[var(--color-slate)]">
               Price: ${item.price}
             </p>
 

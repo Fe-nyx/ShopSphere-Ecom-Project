@@ -91,17 +91,7 @@ function ProductDetailsPage() {
             </span>
           </div>
 
-          <div className="text-sm md:text-base bg-[var(--color-beige)] rounded p-2 md:p-4 mb-4 md:mb-6 text-[var(--color-coal)]/70">
-            <p>✓ Free Shipping</p>
-            <p>✓ Secure Payment</p>
-            <p>✓ Easy Returns</p>
-          </div>
-
-          <p className="text-[var(--color-coal)] leading-relaxed mb-4 md:mb-6">
-            {productDetails?.description}
-          </p>
-
-          <div className="flex gap-3">
+          <div className="flex gap-3 mb-4">
             <button
               className="
                 px-6
@@ -138,6 +128,18 @@ function ProductDetailsPage() {
               )}
             </button>
           </div>
+
+          <div className="text-sm md:text-base bg-[var(--color-beige)] rounded p-2 md:p-4 mb-4 md:mb-6 text-[var(--color-coal)]/70">
+            <p>✓ Free Shipping</p>
+            <p>✓ Secure Payment</p>
+            <p>✓ Easy Returns</p>
+          </div>
+
+          <p className="text-[var(--color-coal)] leading-relaxed mb-4 md:mb-6">
+            {productDetails?.description}
+          </p>
+
+          
         </div>
       </div>
     </div>

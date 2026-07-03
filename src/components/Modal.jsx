@@ -18,7 +18,7 @@ function Modal({ isOpen, title, children, onClose }) {
       >
         <div
           className="
-            bg-white
+            bg-[var(--color-cream)]
             rounded-xl
             shadow-xl
             w-full
@@ -26,13 +26,14 @@ function Modal({ isOpen, title, children, onClose }) {
             max-h-[80vh]
             overflow-y-auto
             mx-4
-            p-6
+            p-3
+            md:p-6
         "
         >
-          <h2 className="text-2xl font-bold mb-4">{title}</h2>
-          <div className="text-gray-700 leading-relaxed">{children}</div>
+          <h2 className="text-[var(--color-coal)] text-xl md:text-2xl font-semibold md:font-bold mb-4">{title}</h2>
+          <div className="text-sm md:text-base text-[var(--color-slate)] leading-relaxed">{children}</div>
           <div className="mt-6 flex justify-end">
-            <button onClick={onClose} className="btn-primary px-5 py-2">
+            <button onClick={onClose} className="btn-primary px-3 md:px-5 py-1 md:py-2">
               Close
             </button>
           </div>
