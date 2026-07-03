@@ -25,7 +25,6 @@ function WhatWeSell() {
         className="
             py-12 md:py-16 lg:py-20
             px-4 md:px-6
-            bg-[var(--color-cream)]
             text-[var(--color-slate)]
         ">
       <h2
@@ -47,7 +46,7 @@ function WhatWeSell() {
         {features.map((feature) => (
           <div
             key={feature.title}
-            className="border rounded-lg p-2 md:p-6 text-center"
+            className="border rounded-lg p-2 md:p-6 text-center bg-white"
           >
             <h3 className="text-lg md:text-xl font-semibold md:mb-2">
               {feature.title}

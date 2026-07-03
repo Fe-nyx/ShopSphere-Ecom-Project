@@ -70,7 +70,12 @@ function HomePage() {
   }
   else {
     productsSection = (
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 px-3 md:px-6">
+      <div className="
+        grid
+        grid-cols-2 md:grid-cols-3 lg:grid-cols-4
+        gap-2 md:gap-4
+        px-3 md:px-6
+      ">
         {searchedProducts.map((product) => {
           return <ProductCard key={product.id} product={product} />
         })}
@@ -98,7 +103,7 @@ function HomePage() {
       <WhatWeSell />
 
       <div
-        className="flex flex-wrap gap-2 mb-8 scroll-mt-20 px-6 bg-[var(--color-cream)]"
+        className="flex flex-wrap gap-1 md:gap-2 mb-8 scroll-mt-20 px-6 bg-[var(--color-cream)]"
         ref={productsRef}
       >
         {categories.map((category) => (
@@ -110,8 +115,8 @@ function HomePage() {
             }}
             className={
               selectedCategory === category
-                ? "px-4 py-2 rounded-full btn-primary"
-                : "px-4 py-2 rounded-full btn-secondary"
+                ? "text-sm md:text-base px-2 md:px-4 py-1 md:py-2 rounded-full btn-primary"
+                : "text-sm md:text-base px-2 md:px-4 py-1 md:py-2 rounded-full btn-secondary"
             }
           >
             {formatCategory(category)}

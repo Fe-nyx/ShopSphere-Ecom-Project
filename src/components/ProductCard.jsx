@@ -30,7 +30,7 @@ function ProductCard({ product }) {
     });
 
     return (
-        <div className="border rounded p-2 md:p-4 h-full flex flex-col transition duration-200 hover:shadow-lg hover:-translate-y-1">
+        <div className="border rounded p-2 md:p-4 h-full flex flex-col transition duration-200 hover:shadow-lg hover:-translate-y-1 bg-white">
 
             <Link to={`/product/${product.id}`}>
                 <div className="flex-grow">

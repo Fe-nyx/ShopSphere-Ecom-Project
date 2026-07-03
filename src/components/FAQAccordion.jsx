@@ -18,11 +18,14 @@ function FAQAccordion({ title, children }) {
           flex
           justify-between
           items-center
-          px-4
-          py-4
+          px-2 md:px-4
+          py-2 md:py-4
+          text-sm md:text-base
           cursor-pointer
-          hover:bg-gray-50
+          bg-white
+          hover:bg-[var(--color-beige)]
           transition
+          text-[var(--color-coal)]
         "
       >
         <span className="font-semibold text-left">
@@ -39,8 +42,10 @@ function FAQAccordion({ title, children }) {
           className="
             px-4
             pb-4
-            text-gray-600
+            text-[var(--color-slate)]
             leading-relaxed
+            text-sm md:text-base
+            bg-[var(--color-white)]
           "
         >
           {children}

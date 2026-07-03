@@ -13,7 +13,7 @@ import ScrollToTop from "./components/ScrollToTop"
 function App() {
 
   return (
-    <div className="min-h-screen bg-[var(--color-background)]">
+    <div className="min-h-screen bg-[var(--color-cream)]">
       <ScrollToTop />
       <Header />
       <Routes>

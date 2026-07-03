@@ -3,7 +3,7 @@ import FAQAccordion from "./FAQAccordion";
 function FAQ() {
   return (
     <section className="py-12 px-4 md:px-6">
-      <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+      <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-[var(--color-coal)]">
         Frequently Asked Questions
       </h2>
 

@@ -40,7 +40,7 @@ function Header() {
 
 
   return (
-    <header className="sticky top-0 z-50 shadow-md bg-[var(--color-cream)]">
+    <header className="sticky top-0 z-50 shadow-md bg-[var(--color-beige)]">
 
       <div className="flex items-center justify-between px-4">
 
@@ -126,9 +126,10 @@ function Header() {
           >
             <input
               className="
+                text-sm md:text-base
                 flex-1
                 px-1 md:px-3
-                md:py-2
+                py-1 md:py-2
                 input
                 
               "
@@ -140,7 +141,9 @@ function Header() {
             <button
               type="submit"
               className="
+                text-sm md:text-base
                 px-3 md:px-4
+                py-1 md:py-2
                 btn-primary
               ">
               Search
