@@ -54,7 +54,7 @@ function LoginPage() {
 
   return (
     <div className="flex justify-center items-center py-8 md:py-16 px-4">
-      <div className="text-[var(--color-coal)] w-full max-w-md border rounded-lg shadow-md p-4 md:p-8">
+      <div className="text-[var(--color-coal)] w-full max-w-md border rounded-lg shadow-md p-4 md:p-8 bg-white">
         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-8">
           Login
         </h1>

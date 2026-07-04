@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
 @import "tailwindcss";
 
 :root {
@@ -25,7 +27,7 @@
   }
 
   .btn-secondary {
-    @apply bg-white
+    @apply bg-[var(--color-cream)]
       text-[var(--color-coal)]
       border
       border-[var(--color-brown)]
@@ -63,5 +65,9 @@
     focus:outline-none
     focus:ring-1
     focus:ring-[var(--color-brown)];
+  }
+
+  .font-brand {
+    font-family: "Comfortaa", sans-serif;
   }
 }

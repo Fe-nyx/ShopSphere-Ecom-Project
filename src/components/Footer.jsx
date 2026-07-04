@@ -31,27 +31,27 @@ function Footer() {
           </h3>
 
           <div className="flex flex-col md:gap-2">
-            <Link to="/" className="text-sm md:text-base hover:text-gray-300">
+            <Link to="/" className="text-sm md:text-base hover:text-[var(--color-cream)]">
               Home
             </Link>
 
             <Link
               to="/cart"
-              className="text-sm md:text-base hover:text-gray-300"
+              className="text-sm md:text-base hover:text-[var(--color-cream)]"
             >
               Cart
             </Link>
 
             <Link
               to="/wishlist"
-              className="text-sm md:text-base hover:text-gray-300"
+              className="text-sm md:text-base hover:text-[var(--color-cream)]"
             >
               Wishlist
             </Link>
 
             <Link
               to="/login"
-              className="text-sm md:text-base hover:text-gray-300"
+              className="text-sm md:text-base hover:text-[var(--color-cream)]"
             >
               Login
             </Link>
@@ -62,7 +62,7 @@ function Footer() {
                 text-left
                 text-sm
                 md:text-base
-                hover:text-gray-300
+                hover:text-[var(--color-cream)]
                 cursor-pointer
               "
             >
@@ -75,7 +75,7 @@ function Footer() {
                 text-left
                 text-sm
                 md:text-base
-                hover:text-gray-300
+                hover:text-[var(--color-cream)]
                 cursor-pointer
               "
             >

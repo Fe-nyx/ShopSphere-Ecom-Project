@@ -25,7 +25,7 @@ function WhatWeSell() {
         className="
             py-12 md:py-16 lg:py-20
             px-4 md:px-6
-            text-[var(--color-slate)]
+            text-[var(--color-coal)]
         ">
       <h2
         className="
@@ -52,7 +52,7 @@ function WhatWeSell() {
               {feature.title}
             </h3>
 
-            <p className="text-sm md:text-base text-gray-600">
+            <p className="text-sm md:text-base text-[var(--color-slate)]/80">
               {feature.description}
             </p>
           </div>

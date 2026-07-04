@@ -10,6 +10,7 @@ import {
 } from "../redux/slices/wishlistSlice";
 
 import { formatCategory } from "../utils/formatCategory";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 import { FiHeart } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
@@ -38,11 +39,11 @@ function ProductDetailsPage() {
   });
 
   if (status === "loading") {
-    return <h1>Product is loading...Please Wait</h1>;
+    return <LoadingSpinner/>;
   }
 
   if (status === "failed") {
-    return <h1>{error}</h1>;
+    return <ErrorState message={error}/>
   }
 
   const rating = Math.round(productDetails?.rating?.rate || 0);
@@ -119,7 +120,7 @@ function ProductDetailsPage() {
                   dispatch(addToWishlist(productDetails));
                 }
               }}
-              className="px-4 py-2 btn-secondary"
+              className="px-4 py-2 btn-secondary bg-white"
             >
               {inWishlist ? (
                 <FaHeart className="text-[var(--color-brown)] text-xl" />

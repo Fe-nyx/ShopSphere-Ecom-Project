@@ -45,7 +45,7 @@ function FAQAccordion({ title, children }) {
             text-[var(--color-slate)]
             leading-relaxed
             text-sm md:text-base
-            bg-[var(--color-white)]
+            bg-white
           "
         >
           {children}

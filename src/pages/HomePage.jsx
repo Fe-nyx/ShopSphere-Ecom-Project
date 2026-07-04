@@ -7,6 +7,8 @@ import ProductCard from "../components/ProductCard";
 import Banner from "../components/Banner";
 import WhatWeSell from "../components/WhatWeSell";
 import FAQ from "../components/FAQ";
+import LoadingSpinner from "../components/LoadingSpinner";
+import ErrorState from "../components/ErrorState";
 
 import { formatCategory } from "../utils/formatCategory";
 
@@ -62,7 +64,7 @@ function HomePage() {
           No products found
         </h2>
 
-        <p className="text-gray-500 mt-2">
+        <p className="text-[var(--color-slate)]/80 mt-2">
           Try searching for another product.
         </p>
       </div>
@@ -84,15 +86,15 @@ function HomePage() {
 
   }
 
-
+  
   //Conditional Rendering
 
   if (status === "loading") {
-    return <h1>Products are loading...Please Wait</h1>
+    return <LoadingSpinner/>
   }
 
   if (status === "failed") {
-    return <h1>{error}</h1>
+    return <ErrorState message={error}/>
   }
 
   // Main Render

@@ -54,7 +54,7 @@ function Header() {
             className="h-10 md:h-15 w-10 md:w-15 object-contain"
           />
 
-          <h1 className="hidden md:block text-2xl font-bold hover:text-[var(--color-slate)]/90">
+          <h1 className="hidden md:block text-2xl font-brand font-bold hover:text-[var(--color-slate)]/90">
             ShopSphere
           </h1>
         </Link>

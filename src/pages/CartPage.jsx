@@ -1,31 +1,44 @@
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector, useDispatch } from "react-redux";
 
-import { deleteFromCart, increaseQty, decreaseQty } from "../redux/slices/cartSlice";
+import {
+  deleteFromCart,
+  increaseQty,
+  decreaseQty,
+} from "../redux/slices/cartSlice";
 import { Link } from "react-router-dom";
 
-import { FiTrash2 } from "react-icons/fi";
+import { FiTrash2, FiShoppingCart } from "react-icons/fi";
+
+import EmptyState from "../components/EmptyState";
 
 function CartPage() {
-
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
 
-  const cartTotal = cart.reduce(
-    (total, item) => {
-      return total + item.product.price * item.quantity
-    }, 0
-  );
-
-
-
+  const cartTotal = cart.reduce((total, item) => {
+    return total + item.product.price * item.quantity;
+  }, 0);
 
   if (cart.length === 0) {
-    return (<h1 className="text-xl md:text-2xl lg:3xl text-center font-semibold my-8 md:my-12">
-      Your Shopping Cart is empty
-    </h1>)
+    return (
+      <EmptyState
+        illustration={
+          <FiShoppingCart
+            className="
+            text-7xl
+            md:text-8xl
+            text-[var(--color-brown)]/80
+          "
+          />
+        }
+        title="Your cart is empty"
+        description="Looks like you haven't added anything to your cart yet."
+        buttonText="Continue Shopping"
+        to="/"
+      />
+    );
   }
-
 
   return (
     <div className="text-[var(--color-coal)]">
@@ -36,7 +49,7 @@ function CartPage() {
       {cart.map((item) => (
         <div
           key={item.product.id}
-          className="border p-4 flex gap-2 md:gap-6 items-center"
+          className="border rounded-md bg-white p-4 flex gap-2 md:gap-6 items-center m-2 md:mx-4"
         >
           <Link
             to={`/product/${item.product.id}`}
@@ -49,9 +62,7 @@ function CartPage() {
             />
           </Link>
 
-
           <div className="flex-1">
-
             <Link
               to={`/product/${item.product.id}`}
               className="hover:text-[var(--color-slate)]/80"
@@ -61,13 +72,11 @@ function CartPage() {
               </p>
             </Link>
 
-
-            <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-8">
+            <p className="text-sm md:text-base text-[var(--color-slate)]/80 mb-4 md:mb-8">
               Price: ${item.product.price}
             </p>
 
             <div className="flex items-center gap-2 md:gap-3 my-3">
-
               <button
                 onClick={() => dispatch(increaseQty(item.product.id))}
                 className="md:text-xl px-1.5 md:px-2 pb-0.5 md:pb-1 btn-secondary"
@@ -85,7 +94,6 @@ function CartPage() {
               >
                 -
               </button>
-
             </div>
 
             <button
@@ -95,21 +103,19 @@ function CartPage() {
                 py-1.5
                 md:text-xl
                 btn-danger
-              ">
-              <FiTrash2/>
+              "
+            >
+              <FiTrash2 />
             </button>
 
             <p className="font-bold mt-3">
               Subtotal: ${(item.product.price * item.quantity).toFixed(2)}
             </p>
           </div>
-
-
         </div>
       ))}
 
       <div className="mt-8 mx-2 border rounded-lg p-2 md:p-4 max-w-sm ml-auto shadow-sm">
-
         <p className="text-lg md:text-xl font-bold mb-2 md:mb-4">
           Cart Total: ${cartTotal.toFixed(2)}
         </p>
@@ -119,13 +125,13 @@ function CartPage() {
             w-full
             py-2 md:py-3
             btn-primary
-          ">
+          "
+        >
           Proceed to Checkout
         </button>
-
       </div>
     </div>
-  )
+  );
 }
 
-export default CartPage
+export default CartPage;
