@@ -64,24 +64,26 @@ function LoginPage() {
           onSubmit={handleSubmit}
           className="flex flex-col gap-2 md:gap-4"
         >
-          <label className="font-medium">Email</label>
+          <label htmlFor="email" className="font-medium">Email</label>
 
           <input
             placeholder="Enter your email"
             className="input px-1 py-1 md:px-3 md:py-2 w-full"
             type="email"
+            id="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
 
           {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
 
-          <label className="font-medium mt-2">Password</label>
+          <label htmlFor="password" className="font-medium mt-2">Password</label>
 
           <input
             placeholder="Enter your password"
             className="input px-1 py-1 md:px-3 md:py-2 w-full"
             type="password"
+            id="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
