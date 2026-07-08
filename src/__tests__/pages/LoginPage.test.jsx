@@ -14,17 +14,17 @@ describe("LoginPage", () => {
     render(<LoginPage />);
 
     // assertions
-    expect(screen.getByRole("heading", { name: "Login" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /login/i })).toBeInTheDocument();
     expect(screen.getByLabelText("Email")).toBeInTheDocument();
     expect(screen.getByLabelText("Password")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Login" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /login/i })).toBeInTheDocument();
   });
 
   it("should display errors empty fields", async () => {
     render(<LoginPage />);
 
     const user = userEvent.setup();
-    const loginButton = screen.getByRole("button", { name: "Login" });
+    const loginButton = screen.getByRole("button", { name: /login/i });
 
     await user.click(loginButton);
 
@@ -39,7 +39,7 @@ describe("LoginPage", () => {
     render(<LoginPage />);
 
     const user = userEvent.setup();
-    const loginButton = screen.getByRole("button", { name: "Login" });
+    const loginButton = screen.getByRole("button", { name: /login/i });
 
     await user.type(screen.getByLabelText("Email"), validCredentials.email);
     await user.type(
@@ -47,7 +47,7 @@ describe("LoginPage", () => {
       validCredentials.password,
     );
 
-    await user.click(screen.getByRole("button", { name: "Login" }));
+    await user.click(screen.getByRole("button", { name: /login/i }));
 
     expect(alertMock).toHaveBeenCalledWith("Login Successful");
   });

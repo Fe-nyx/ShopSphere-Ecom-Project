@@ -11,6 +11,7 @@ import {
 
 import { formatCategory } from "../utils/formatCategory";
 import LoadingSpinner from "../components/LoadingSpinner";
+import ErrorState from "../components/ErrorState";
 
 import { FiHeart } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
@@ -39,11 +40,11 @@ function ProductDetailsPage() {
   });
 
   if (status === "loading") {
-    return <LoadingSpinner/>;
+    return <LoadingSpinner />;
   }
 
   if (status === "failed") {
-    return <ErrorState message={error}/>
+    return <ErrorState message={error} />;
   }
 
   const rating = Math.round(productDetails?.rating?.rate || 0);
@@ -113,6 +114,9 @@ function ProductDetailsPage() {
             </button>
 
             <button
+              aria-label={
+                inWishlist ? "Remove from Wishlist" : "Add to Wishlist"
+              }
               onClick={() => {
                 if (inWishlist) {
                   dispatch(removeFromWishlist(productDetails.id));
@@ -139,8 +143,6 @@ function ProductDetailsPage() {
           <p className="text-[var(--color-coal)] leading-relaxed mb-4 md:mb-6">
             {productDetails?.description}
           </p>
-
-          
         </div>
       </div>
     </div>

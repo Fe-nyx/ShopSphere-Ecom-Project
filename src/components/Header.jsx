@@ -65,6 +65,7 @@ function Header() {
 
           <button
             onClick={() => setShowSearch(!showSearch)}
+            aria-label={showSearch ? "Close Search" : "Open Search"}
             className="text-xl md:text-2xl cursor-pointer hover:text-[var(--color-slate)]/90"
           >
             {showSearch ? <FiX /> : <FiSearch />}
@@ -72,12 +73,14 @@ function Header() {
 
           <Link
             to="/login"
+            aria-label="Login"
           >
             <FiUser className="text-xl md:text-2xl hover:text-[var(--color-slate)]/90" />
           </Link>
 
           <Link
             to="/wishlist"
+            aria-label="Wishlist"
             className="flex items-center gap-0.5 hover:text-[var(--color-slate)]/90"
           >
             <FiHeart className="text-xl md:text-2xl" />
@@ -96,6 +99,7 @@ function Header() {
 
           <Link
             to="/cart"
+            aria-label="Cart"
             className="flex items-center gap-0.5 hover:text-[var(--color-slate)]/90"
           >
             <FiShoppingCart className="text-xl md:text-2xl" />

@@ -78,17 +78,19 @@ function CartPage() {
 
             <div className="flex items-center gap-2 md:gap-3 my-3">
               <button
+                aria-label="Increase Quantity"
                 onClick={() => dispatch(increaseQty(item.product.id))}
                 className="md:text-xl px-1.5 md:px-2 pb-0.5 md:pb-1 btn-secondary"
               >
                 +
               </button>
 
-              <span className="font-semibold text-sm md:text-base">
+              <span className="font-semibold text-sm md:text-base" aria-label="Quantity">
                 {item.quantity}
               </span>
 
               <button
+                aria-label="Decrease Quantity"
                 onClick={() => dispatch(decreaseQty(item.product.id))}
                 className="md:text-xl px-2 md:px-2.75 pb-0.5 md:pb-1 btn-secondary"
               >
@@ -97,6 +99,7 @@ function CartPage() {
             </div>
 
             <button
+              aria-label="Delete Item"
               onClick={() => dispatch(deleteFromCart(item.product.id))}
               className="
                 px-1
