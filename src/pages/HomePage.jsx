@@ -98,7 +98,7 @@ function HomePage() {
   // Main Render
   return (
     <>
-      <Banner />
+      <Banner onCTAButton={scrollToProducts} />
 
       <WhatWeSell />
 

@@ -26,7 +26,7 @@ const slides = [
   },
 ];
 
-function Banner() {
+function Banner({onCTAButton}) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   function nextSlide() {
@@ -74,7 +74,10 @@ function Banner() {
         {slides[currentSlide].subtitle}
       </p>
 
-      <button className="text-sm md:text-base btn-secondary mt-6 px-1.5 py-0.5 md:px-2 md:py-1">
+      <button
+        onClick={onCTAButton}
+        className="text-sm md:text-base btn-secondary mt-6 px-1.5 py-0.5 md:px-2 md:py-1"
+      >
         {slides[currentSlide].button}
       </button>
 

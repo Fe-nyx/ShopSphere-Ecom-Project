@@ -124,7 +124,7 @@ function ProductDetailsPage() {
                   dispatch(addToWishlist(productDetails));
                 }
               }}
-              className="px-4 py-2 btn-secondary bg-white"
+              className="px-4 py-2 btn-secondary"
             >
               {inWishlist ? (
                 <FaHeart className="text-[var(--color-brown)] text-xl" />
