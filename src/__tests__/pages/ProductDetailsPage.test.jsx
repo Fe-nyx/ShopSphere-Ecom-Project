@@ -1,5 +1,3 @@
-// ProductDetailsPage.integration.test.jsx
-
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
@@ -15,10 +13,11 @@ import wishlistReducer from "../../redux/slices/wishlistSlice";
 
 import * as productService from "../../services/productService";
 
+//mocked productService
 vi.mock("../../services/productService");
 
+//Mocked Routing
 const mockNavigate = vi.fn();
-
 vi.mock("react-router-dom", async () => {
   const actual = await vi.importActual("react-router-dom");
 
@@ -31,6 +30,7 @@ vi.mock("react-router-dom", async () => {
   };
 });
 
+//Mocked API data
 const mockProduct = {
   id: 1,
   title: "Laptop",
@@ -63,12 +63,15 @@ function renderComponent(preloadedState = {}) {
       <MemoryRouter>
         <ProductDetailsPage />
       </MemoryRouter>
-    </Provider>
+    </Provider>,
   );
 }
 
+//Mocks cleared and user is setup before each test
+let user;
 beforeEach(() => {
   vi.clearAllMocks();
+  user = userEvent.setup();
 });
 
 describe("ProductDetailsPage Integration", () => {
@@ -94,45 +97,32 @@ describe("ProductDetailsPage Integration", () => {
     expect(
       screen.getByRole("img", {
         name: "Laptop",
-      })
+      }),
     ).toBeInTheDocument();
 
-    expect(
-      screen.getByText("$1200")
-    ).toBeInTheDocument();
+    expect(screen.getByText("$1200")).toBeInTheDocument();
 
-    expect(
-      screen.getByText("Electronics")
-    ).toBeInTheDocument();
+    expect(screen.getByText("Electronics")).toBeInTheDocument();
 
-    expect(
-      screen.getByText("A powerful laptop.")
-    ).toBeInTheDocument();
+    expect(screen.getByText("A powerful laptop.")).toBeInTheDocument();
 
-    expect(
-      screen.getByText("(120 reviews)")
-    ).toBeInTheDocument();
+    expect(screen.getByText("(120 reviews)")).toBeInTheDocument();
   });
 
   it("renders error state when request fails", async () => {
     productService.getProductById.mockRejectedValue(
-      new Error("Failed to fetch product")
+      new Error("Failed to fetch product"),
     );
 
     renderComponent();
 
-    expect(
-      await screen.findByText("Something went wrong")
-    ).toBeInTheDocument();
+    expect(await screen.findByText("Something went wrong")).toBeInTheDocument();
 
-    expect(
-      screen.getByText("Failed to fetch product")
-    ).toBeInTheDocument();
+    expect(screen.getByText("Failed to fetch product")).toBeInTheDocument();
   });
 });
 
 describe("Cart and Wishlist UI", () => {
-
   it("shows 'Go To Cart' when product is already in cart", async () => {
     productService.getProductById.mockResolvedValue(mockProduct);
 
@@ -148,12 +138,11 @@ describe("Cart and Wishlist UI", () => {
     expect(
       await screen.findByRole("button", {
         name: /go to cart/i,
-      })
+      }),
     ).toBeInTheDocument();
   });
 
   it("navigates to cart when 'Go To Cart' is clicked", async () => {
-    const user = userEvent.setup();
 
     productService.getProductById.mockResolvedValue(mockProduct);
 
@@ -169,7 +158,7 @@ describe("Cart and Wishlist UI", () => {
     await user.click(
       await screen.findByRole("button", {
         name: /go to cart/i,
-      })
+      }),
     );
 
     expect(mockNavigate).toHaveBeenCalledWith("/cart");
@@ -183,7 +172,7 @@ describe("Cart and Wishlist UI", () => {
     expect(
       await screen.findByRole("button", {
         name: /add to wishlist/i,
-      })
+      }),
     ).toBeInTheDocument();
   });
 
@@ -197,7 +186,7 @@ describe("Cart and Wishlist UI", () => {
     expect(
       await screen.findByRole("button", {
         name: /remove from wishlist/i,
-      })
+      }),
     ).toBeInTheDocument();
   });
 });

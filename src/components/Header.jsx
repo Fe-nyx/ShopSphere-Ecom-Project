@@ -1,18 +1,24 @@
-import { Link, useNavigate } from "react-router-dom"
-import { useSelector, useDispatch } from "react-redux"
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useState, useRef, useEffect } from "react";
 
-import { FiSearch, FiHeart, FiShoppingCart, FiBell, FiUser, FiX } from "react-icons/fi"
+import {
+  FiSearch,
+  FiHeart,
+  FiShoppingCart,
+  FiBell,
+  FiUser,
+  FiX,
+} from "react-icons/fi";
 
 import { updateSearchValue } from "../redux/slices/searchSlice";
+import logo from "../assets/logo.png";
 
-import logo from "../assets/logo.png"
 
 
 function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
 
   const cart = useSelector((state) => state.cart);
   const wishlist = useSelector((state) => state.wishlist);
@@ -20,34 +26,35 @@ function Header() {
   const [showSearch, setShowSearch] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
-
-
   const cartCounter = cart.reduce((total, item) => {
-    return total + item.quantity
-  }, 0)
-
+    return total + item.quantity;
+  }, 0);
   const wishlistCounter = wishlist.length;
 
   function handleSearchSubmit(event) {
+    //to prevent browser from reloading the page
     event.preventDefault();
+    //Navigate to home after submission
     navigate("/");
+    //update redux state with latest search value
     dispatch(updateSearchValue(inputValue.trim()));
-
 
     // Thought of closing the search bar after submitting but later thought it was a bad UX choice
     // setShowSearch(false);
   }
 
+  //Focusing on input when search is clicked
+  const inputRef = useRef(null);
+  useEffect(()=>{
+    if(showSearch) {
+      inputRef.current?.focus();
+    }
+  }, [showSearch]);
 
   return (
     <header className="sticky top-0 z-50 shadow-md bg-[var(--color-beige)] text-[var(--color-coal)]">
-
       <div className="flex items-center justify-between px-4">
-
-        <Link
-          to="/"
-          className="flex items-center gap-3"
-        >
+        <Link to="/" className="flex items-center gap-3">
           <img
             src={logo}
             alt="ShopSphere Logo"
@@ -59,25 +66,25 @@ function Header() {
           </h1>
         </Link>
 
-
-
         <div className="flex items-center gap-3 md:gap-5">
-
+          
+          {/* Search Button */}
           <button
-            onClick={() => setShowSearch(!showSearch)}
+            onClick={() => setShowSearch((prev) => !prev)}
             aria-label={showSearch ? "Close Search" : "Open Search"}
             className="text-xl md:text-2xl cursor-pointer hover:text-[var(--color-slate)]/90"
           >
             {showSearch ? <FiX /> : <FiSearch />}
           </button>
 
-          <Link
-            to="/login"
-            aria-label="Login"
-          >
+
+          {/* Login Page */}
+          <Link to="/login" aria-label="Login">
             <FiUser className="text-xl md:text-2xl hover:text-[var(--color-slate)]/90" />
           </Link>
 
+
+          {/* Wishlist */}
           <Link
             to="/wishlist"
             aria-label="Wishlist"
@@ -97,6 +104,8 @@ function Header() {
             </span>
           </Link>
 
+
+          {/* Cart */}
           <Link
             to="/cart"
             aria-label="Cart"
@@ -116,18 +125,14 @@ function Header() {
             </span>
           </Link>
 
+
           <FiBell className="text-xl md:text-2xl hover:text-[var(--color-slate)]/90 cursor-pointer" />
-
         </div>
-
       </div>
 
       {showSearch && (
         <div className="border-t p-1 md:p-2">
-          <form
-            onSubmit={handleSearchSubmit}
-            className="flex gap-1 md:gap-2"
-          >
+          <form onSubmit={handleSearchSubmit} className="flex gap-1 md:gap-2">
             <input
               className="
                 text-sm md:text-base
@@ -135,8 +140,8 @@ function Header() {
                 px-1 md:px-3
                 py-1 md:py-2
                 input
-                
               "
+              ref={inputRef}
               placeholder="Search Products..."
               value={inputValue}
               onChange={(event) => setInputValue(event.target.value)}
@@ -149,15 +154,15 @@ function Header() {
                 px-3 md:px-4
                 py-1 md:py-2
                 btn-primary
-              ">
+              "
+            >
               Search
             </button>
           </form>
         </div>
       )}
-
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

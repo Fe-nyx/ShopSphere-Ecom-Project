@@ -1,7 +1,6 @@
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../redux/slices/productsSlice";
-
 
 import ProductCard from "../components/ProductCard";
 import Banner from "../components/Banner";
@@ -20,18 +19,34 @@ function HomePage() {
   const productsRef = useRef(null);
 
   const { searchValue } = useSelector((state) => state.search);
-  const { products, status, error } = useSelector((state) => state.products)
+  const { products, status, error } = useSelector((state) => state.products);
 
+  //Categories
+  const categories = [
+    "all",
+    ...new Set(products.map((product) => product.category)),
+  ];
+  const filteredProducts =
+    selectedCategory === "all"
+      ? products
+      : products.filter((product) => {
+          return product.category === selectedCategory;
+        });
+
+  //Search
+  const searchedProducts = filteredProducts.filter((product) => {
+    return product.title.toLowerCase().includes(searchValue.toLowerCase());
+  });
 
   function scrollToProducts() {
     productsRef.current?.scrollIntoView({
       behavior: "smooth",
-      block: "start"
+      block: "start",
     });
   }
 
   useEffect(() => {
-    dispatch(fetchProducts())
+    dispatch(fetchProducts());
   }, [dispatch]);
 
   useEffect(() => {
@@ -40,61 +55,44 @@ function HomePage() {
     }
   }, [searchValue]);
 
-
-
-  //Categories
-  const categories = ["all", ...new Set(products.map((product) => product.category))];
-  const filteredProducts = selectedCategory === "all" ? products : products.filter((product) => {
-    return product.category === selectedCategory
-  });
-
-  //Search
-  const searchedProducts = filteredProducts.filter((product) => {
-    return product.title.toLowerCase().includes(searchValue.toLowerCase())
-  });
-
-
   //Products Section
   let productsSection;
 
   if (searchedProducts.length === 0) {
     productsSection = (
       <div className="text-center py-16">
-        <h2 className="text-2xl font-semibold">
-          No products found
-        </h2>
+        <h2 className="text-2xl font-semibold">No products found</h2>
 
         <p className="text-[var(--color-slate)]/80 mt-2">
           Try searching for another product.
         </p>
       </div>
     );
-  }
-  else {
+  } else {
     productsSection = (
-      <div className="
+      <div
+        className="
         grid
         grid-cols-2 md:grid-cols-3 lg:grid-cols-4
         gap-2 md:gap-4
         px-3 md:px-6
-      ">
+      "
+      >
         {searchedProducts.map((product) => {
-          return <ProductCard key={product.id} product={product} />
+          return <ProductCard key={product.id} product={product} />;
         })}
       </div>
     );
-
   }
 
-  
   //Conditional Rendering
 
   if (status === "loading") {
-    return <LoadingSpinner/>
+    return <LoadingSpinner />;
   }
 
   if (status === "failed") {
-    return <ErrorState message={error}/>
+    return <ErrorState message={error} />;
   }
 
   // Main Render
@@ -124,15 +122,13 @@ function HomePage() {
             {formatCategory(category)}
           </button>
         ))}
-      </div >
+      </div>
 
       {productsSection}
 
-      <FAQ/>
-
+      <FAQ />
     </>
   );
-
 }
 
-export default HomePage
+export default HomePage;

@@ -42,9 +42,7 @@ function Banner() {
   }
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((previous) => (previous + 1) % slides.length);
-    }, 5000);
+    const interval = setInterval(nextSlide, 5000);
 
     return () => clearInterval(interval);
   }, [currentSlide]);

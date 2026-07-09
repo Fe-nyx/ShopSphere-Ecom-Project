@@ -1,4 +1,3 @@
-// HomePage.integration.test.jsx
 
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -16,7 +15,7 @@ import * as productService from "../../services/productService";
 
 vi.mock("../../services/productService");
 
-// Mock child components so we're only testing HomePage
+// Mock child components
 vi.mock("../../components/ProductCard", () => ({
   default: ({ product }) => (
     <div data-testid="product-card">
@@ -37,8 +36,10 @@ vi.mock("../../components/FAQ", () => ({
   default: () => <div data-testid="faq" />,
 }));
 
+// Mocking scrollIntoView
 window.HTMLElement.prototype.scrollIntoView = vi.fn();
 
+// Mocked API data
 const mockProducts = [
   {
     id: 1,
@@ -75,6 +76,7 @@ const mockProducts = [
   },
 ];
 
+//Main component render with redux store
 function renderComponent(preloadedState = {}) {
   const store = configureStore({
     reducer: {
@@ -98,12 +100,13 @@ function renderComponent(preloadedState = {}) {
   );
 }
 
+//Mocks cleared and user is setup before each test
 let user;
-
 beforeEach(() => {
   vi.clearAllMocks();
   user = userEvent.setup();
 });
+
 
 describe("HomePage Integration", () => {
   it("fetches and displays products", async () => {
@@ -139,6 +142,7 @@ describe("HomePage Integration", () => {
 
     renderComponent();
 
+    //wait for product cards to render
     await screen.findAllByTestId("product-card");
 
     await user.click(
